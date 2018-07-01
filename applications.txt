@@ -1,0 +1,84 @@
+Internet (3)
+------------
+Chrome
+Firefox
+Opera
+
+
+Messaging (3)
+-------------
+Skype
+Pidgin
+Thunderbird
+
+
+Media (3)
+---------
+VLC
+Audacity
+Spotify
+
+
+Graphics (5)
+------------
+Blender
+GIMP
+Krita
+Inkscape
+Gthumb
+
+
+Documents (4)
+-------------
+LibreOffice
+Okular
+GNOME Office
+Oxygen Office
+
+
+Utilities (9)
+-------------
+Teamviewer
+Kazam
+SimpleScreenRecorder
+K3b
+VNC Connect
+UNetbootin
+Play On Linux
+QBittorent
+Docky
+
+Compression (6)
+---------------
+PeaZip
+p7zip
+tar
+gzip
+bzip
+unrar
+
+
+Development Tools (11)
+----------------------
+Python
+FileZilla
+Notepadqq
+JDK
+PuTTY
+Visual Studio Code
+Sublime Text
+PyCharm
+IntelliJ
+Android Studio
+LAMP
+
+
+Terminals (7)
+-------------
+Terminator
+Tilda
+Yakuake
+LXTerminal
+Konsole
+Gnome-Terminal
+xterm

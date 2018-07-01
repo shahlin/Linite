@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="internet">
+    <file>icons/internet/chrome.png</file>
+    <file>icons/internet/firefox.png</file>
+    <file>icons/internet/opera.png</file>
+  </qresource>
+  <qresource prefix="app">
+    <file>icons/app/separator.png</file>
+    <file>icons/app/logo_small.png</file>
+  </qresource>
+  <qresource prefix="messaging">
+    <file>icons/messaging/pidgin.png</file>
+    <file>icons/messaging/skype.png</file>
+    <file>icons/messaging/thunderbird.png</file>
+  </qresource>
+  <qresource prefix="media">
+    <file>icons/media/audacity.png</file>
+    <file>icons/media/spotify.png</file>
+    <file>icons/media/vlc.png</file>
+  </qresource>
+</RCC>
