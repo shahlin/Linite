@@ -1,10 +1,11 @@
 <RCC>
   <qresource prefix="internet">
-    <file>icons/internet/chrome.png</file>
     <file>icons/internet/firefox.png</file>
+    <file>icons/internet/chromium.png</file>
     <file>icons/internet/opera.png</file>
   </qresource>
   <qresource prefix="app">
+    <file>icons/app/logo_icon.png</file>
     <file>icons/app/separator.png</file>
     <file>icons/app/logo_small.png</file>
   </qresource>

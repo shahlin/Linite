@@ -1,0 +1,121 @@
+<packages>
+    <category name="internet">
+        <package>
+            <name>Chromium</name>
+            <icon>internet/chromium.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y chromium-browser</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Firefox</name>
+            <icon>internet/firefox.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y firefox</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Opera</name>
+            <icon>internet/opera.png</icon>    <category name="messaging">
+        <package>
+            <name>Skype</name>
+            <icon>messaging/skype.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y opera</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Thunderbird</name>
+            <icon>messaging/thunderbird.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y opera</apt>
+            </commands>
+        </package>
+    </category>
+    <category name="media">
+        <package>
+            <name>VLC</name>
+            <icon>media/vlc.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y vlc</apt>
+            </commands>
+        </package>
+    </category>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y opera</apt>
+            </commands>
+        </package>
+    </category>
+    <category name="messaging">
+        <package>
+            <name>Skype</name>
+            <icon>messaging/skype.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y opera</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Thunderbird</name>
+            <icon>messaging/thunderbird.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y opera</apt>
+            </commands>
+        </package>
+    </category>
+    <category name="media">
+        <package>
+            <name>VLC</name>
+            <icon>media/vlc.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y vlc</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Spotify</name>
+            <icon>media/spotify.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y spotify</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Audacity</name>
+            <icon>media/audacity.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y vlc</apt>
+            </commands>
+        </package>
+    </category>
+</packages>
