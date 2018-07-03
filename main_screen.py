@@ -18,11 +18,17 @@ class MainScreenFormUi(object):
     # List to hold package icon labels
     icon_label_list = []
 
-    # List to hold package checkboxes
-    checkboxes_list = []
+    # Dictionary to hold applications checkboxes
+    checkboxes_dict = {}
 
     # List to hold category heading labels
     category_label_list = []
+
+    # List to hold applications that are checked
+    checked_applications_list = []
+
+    # Number of applications selected
+    selected_application_count = 0
 
     # Number of columns allowed in the grid
     GRID_COLUMNS = 5
@@ -129,7 +135,7 @@ class MainScreenFormUi(object):
                 self.checkbox_widget.setStyleSheet("margin-bottom:15px;")
                 self.apps_grid_container.addWidget(self.checkbox_widget, application_row + 1, col, 1, 1)
 
-                self.checkboxes_list.append(self.checkbox_widget)
+                self.checkboxes_dict[application_name] = self.checkbox_widget
 
                 # Add a column for every icon
                 col += 1
@@ -178,6 +184,24 @@ class MainScreenFormUi(object):
         self.retranslate_ui(main_screen_form)
         QtCore.QMetaObject.connectSlotsByName(main_screen_form)
 
+    def checkbox_state_changed(self):
+        for key, value in self.checkboxes_dict.items():
+            # Do not allow duplicates
+            if value.isChecked():
+                if key not in self.checked_applications_list: self.checked_applications_list.append(key)
+            else:
+                if key in self.checked_applications_list: self.checked_applications_list.remove(key)
+
+        self.update_selected_count()
+
+    def update_selected_count(self):
+        print(self.checked_applications_list)
+        _translate = QtCore.QCoreApplication.translate
+
+        # Number of applications selected label
+        self.label.setText(
+            _translate("main_screen_form", str(len(self.checked_applications_list)) + " application(s) selected"))
+
     def retranslate_ui(self, main_screen_form):
         _translate = QtCore.QCoreApplication.translate
 
@@ -214,13 +238,10 @@ class MainScreenFormUi(object):
                 self.icon_label_list[j].setText(_translate("main_screen_form", "<html><head/><body><p><img "
                                                            "src=\":/" + category_name + "/icons/" +
                                                            icon_path + "\"/></p></body></html>"))
-                self.checkboxes_list[j].setText(_translate("main_screen_form", application_name.title()))
+                self.checkboxes_dict[application_name].setText(_translate("main_screen_form", application_name.title()))
                 print("Icon: " + icon_path)
 
                 j += 1
-
-        # Number of applications selected label
-        self.label.setText(_translate("main_screen_form", "# application(s) selected"))
 
         # Download and Install Push Button
         self.download_btn.setText(_translate("main_screen_form", "Download and Install"))
