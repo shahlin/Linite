@@ -22,45 +22,10 @@
         </package>
         <package>
             <name>Opera</name>
-            <icon>internet/opera.png</icon>    <category name="messaging">
-        <package>
-            <name>Skype</name>
-            <icon>messaging/skype.png</icon>
+            <icon>internet/opera.png</icon>   
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
-                <apt>sudo apt install -y opera</apt>
-            </commands>
-        </package>
-        <package>
-            <name>Thunderbird</name>
-            <icon>messaging/thunderbird.png</icon>
-            <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
-                <apt>sudo apt install -y opera</apt>
-            </commands>
-        </package>
-    </category>
-    <category name="media">
-        <package>
-            <name>VLC</name>
-            <icon>media/vlc.png</icon>
-            <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
-                <apt>sudo apt install -y vlc</apt>
-            </commands>
-        </package>
-    </category>
-            <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
-                <apt>sudo apt install -y opera</apt>
+                <pacman steps="multipls"></pacman>
+                <apt></apt>
             </commands>
         </package>
     </category>
