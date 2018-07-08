@@ -2,7 +2,7 @@
     <category name="internet">
         <package>
             <name>Chromium</name>
-            <icon>internet/chromium.png</icon>
+            <icon>chromium.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -12,7 +12,7 @@
         </package>
         <package>
             <name>Firefox</name>
-            <icon>internet/firefox.png</icon>
+            <icon>firefox.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -22,7 +22,7 @@
         </package>
         <package>
             <name>Opera</name>
-            <icon>internet/opera.png</icon>   
+            <icon>opera.png</icon>   
             <commands>
                 <pacman steps="multipls"></pacman>
                 <apt></apt>
@@ -32,7 +32,7 @@
     <category name="messaging">
         <package>
             <name>Skype</name>
-            <icon>messaging/skype.png</icon>
+            <icon>skype.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -42,7 +42,7 @@
         </package>
         <package>
             <name>Thunderbird</name>
-            <icon>messaging/thunderbird.png</icon>
+            <icon>thunderbird.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -50,11 +50,21 @@
                 <apt>sudo apt install -y opera</apt>
             </commands>
         </package>
+        <package>
+            <name>Pidgin</name>
+            <icon>pidgin.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y pidgin</apt>
+            </commands>
+        </package>
     </category>
     <category name="media">
         <package>
             <name>VLC</name>
-            <icon>media/vlc.png</icon>
+            <icon>vlc.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -64,7 +74,7 @@
         </package>
         <package>
             <name>Spotify</name>
-            <icon>media/spotify.png</icon>
+            <icon>spotify.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
@@ -74,13 +84,217 @@
         </package>
         <package>
             <name>Audacity</name>
-            <icon>media/audacity.png</icon>
+            <icon>audacity.png</icon>
             <commands>
                 <pacman steps="multiple">
                     <step></step>
                 </pacman>
                 <apt>sudo apt install -y vlc</apt>
             </commands>
+        </package>
+    </category>
+    <category name="graphics">
+        <package>
+            <name>GIMP</name>
+            <icon>gimp.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm gimp</step>
+                </pacman>
+                <apt>sudo apt install -y gimp</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Blender</name>
+            <icon>blender.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y blender</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Krita</name>
+            <icon>krita.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y krita</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Inkscape</name>
+            <icon>inkscape.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y inkscape</apt>
+            </commands>
+        </package>
+        <package>
+            <name>gThumb</name>
+            <icon>gthumb.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y gthumb</apt>
+            </commands>
+        </package>
+    </category>
+    <category name="documents">
+        <package>
+            <name>Libre Office</name>
+            <icon>libreoffice.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y libreoffice</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Okular</name>
+            <icon>okular.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y okular</apt>
+            </commands>
+        </package>
+        <package>
+            <name>Evince</name>
+            <icon>evince.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y evince</apt>
+            </commands>
+        </package>
+    </category>
+    <category name="utilities">
+        <package>
+            <name>Teamviewer</name>
+            <icon>teamviewer.png</icon>
+        </package>
+        <package>
+            <name>Kazam</name>
+            <icon>kazam.png</icon>
+        </package>
+        <package>
+            <name>SimpleScreenRecorder</name>
+            <icon>simplescreenrecorder.png</icon>
+        </package>
+        <package>
+            <name>K3b</name>
+            <icon>k3b.png</icon>
+        </package>
+        <package>
+            <name>TightVNC</name>
+            <icon>tightvnc.png</icon>
+        </package>
+        <package>
+            <name>Putty</name>
+            <icon>putty.png</icon>
+        </package>
+        <package>
+            <name>UNetBootin</name>
+            <icon>unetbootin.png</icon>
+        </package>
+        <package>
+            <name>Play On Linux</name>
+            <icon>playonlinux.png</icon>
+        </package>
+        <package>
+            <name>QBittorent</name>
+            <icon>qbitorrent.png</icon>
+        </package>
+        <package>
+            <name>Docky</name>
+            <icon>docky.png</icon>
+        </package>
+    </category>
+    <category name="compression">
+        <package>
+            <name>PeaZip</name>
+            <icon>peazip.png</icon>
+        </package>
+        <package>
+            <name>7zip</name>
+            <icon>7zip.png</icon>
+        </package>
+        <package>
+            <name>Gzip</name>
+            <icon>gzip.png</icon>
+        </package>
+        <package>
+            <name>bzip2</name>
+            <icon>bzip2.png</icon>
+        </package>
+        <package>
+            <name>Unrar</name>
+            <icon>unrar.png</icon>
+        </package>
+    </category>
+    <category name="development">
+        <package>
+            <name>Python</name>
+            <icon>python.png</icon>
+        </package>
+        <package>
+            <name>Java Jdk</name>
+            <icon>jdk.png</icon>
+        </package>
+        <package>
+            <name>Filezilla</name>
+            <icon>filezilla.png</icon>
+        </package>
+        <package>
+            <name>Notepadqq</name>
+            <icon>notepadqq.png</icon>
+        </package>
+        <package>
+            <name>Sublime Text</name>
+            <icon>sublime.png</icon>
+        </package>
+        <package>
+            <name>Visual Studio Code</name>
+            <icon>vscode.png</icon>
+        </package>
+        <package>
+            <name>IntelliJ</name>
+            <icon>intellij.png</icon>
+        </package>
+        <package>
+            <name>Pycharm</name>
+            <icon>pycharm.png</icon>
+        </package>
+        <package>
+            <name>Android Studio</name>
+            <icon>androidstudio.png</icon>
+        </package>
+        <package>
+            <name>LAMP Stack</name>
+            <icon>lamp.png</icon>
+        </package>
+    </category>
+    <category name="terminal">
+        <package>
+            <name>Terminator</name>
+            <icon>terminator.png</icon>
+        </package>
+        <package>
+            <name>Yakuake</name>
+            <icon>yakuake.png</icon>
+        </package>
+        <package>
+            <name>Tilda</name>
+            <icon>tilda.png</icon>
         </package>
     </category>
 </packages>

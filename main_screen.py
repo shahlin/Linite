@@ -9,8 +9,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import xml.etree.ElementTree as ET
 
+from PyQt5.QtWidgets import QMessageBox
 
-class MainScreenFormUi(object):
+
+class MainScreenFormUi(QtWidgets.QMessageBox):
     # Parse XML file to get packages/applications info
     tree = ET.parse('package_list.xml')
     root = tree.getroot()
@@ -100,6 +102,7 @@ class MainScreenFormUi(object):
         # Start inserting applications from row 1
         application_row = 1
 
+        # Loop through each category
         for category in self.root.findall('category'):
             category_name = category.get('name')
             print("Category Row : " + str(category_row))
@@ -119,6 +122,7 @@ class MainScreenFormUi(object):
 
             application_row += 3
 
+            # Loop through each package in a category
             for package in self.root.findall('./category[@name="' + category_name + '"]/package'):
                 application_name = package.find('name').text
 
@@ -136,6 +140,9 @@ class MainScreenFormUi(object):
                 self.apps_grid_container.addWidget(self.checkbox_widget, application_row + 1, col, 1, 1)
 
                 self.checkboxes_dict[application_name] = self.checkbox_widget
+
+                # Add State Changed Listener for the Checkboxes(
+                self.checkbox_widget.stateChanged.connect(self.checkbox_state_changed)
 
                 # Add a column for every icon
                 col += 1
@@ -169,16 +176,24 @@ class MainScreenFormUi(object):
         self.download_btn = QtWidgets.QPushButton(self.frame)
         self.download_btn.setGeometry(QtCore.QRect(670, 10, 221, 41))
         self.download_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.download_btn.setStyleSheet("QPushButton#download_btn {\n"
-                                        "    background-color: #29a04b;\n"
-                                        "    border-radius: 5px;\n"
-                                        "    color: white;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QPushButton#download_btn:hover:!pressed {\n"
-                                        "    background-color: #20873d;\n"
-                                        "}")
+
+        self.download_btn.clicked.connect(self.confirm_download)
+
+        self.download_btn_qss = """
+            QPushButton#download_btn {
+                background-color: #96989b;
+                border-radius: 5px;
+                color: white;
+            }
+            
+            QPushButton#download_btn:hover:!pressed {
+                background-color: #20873d;
+            }
+            
+        """
+        self.download_btn.setStyleSheet(self.download_btn_qss)
         self.download_btn.setObjectName("download_btn")
+        self.download_btn.setEnabled(False)
         self.gridLayout_2.addWidget(self.frame, 3, 0, 1, 2)
 
         self.retranslate_ui(main_screen_form)
@@ -188,11 +203,17 @@ class MainScreenFormUi(object):
         for key, value in self.checkboxes_dict.items():
             # Do not allow duplicates
             if value.isChecked():
-                if key not in self.checked_applications_list: self.checked_applications_list.append(key)
+                if key not in self.checked_applications_list:
+                    self.checked_applications_list.append(key)
             else:
-                if key in self.checked_applications_list: self.checked_applications_list.remove(key)
+                if key in self.checked_applications_list:
+                    self.checked_applications_list.remove(key)
 
+        # Update number of applications selected/checked
         self.update_selected_count()
+
+        # Update the download button to be enabled or disabled according to the options selected
+        self.update_download_btn()
 
     def update_selected_count(self):
         print(self.checked_applications_list)
@@ -200,7 +221,36 @@ class MainScreenFormUi(object):
 
         # Number of applications selected label
         self.label.setText(
-            _translate("main_screen_form", str(len(self.checked_applications_list)) + " application(s) selected"))
+            _translate("main_screen_form", str(len(self.checked_applications_list)) + " application"
+                       + ("s" if len(self.checked_applications_list) > 1 else '') + " selected"))  # Add s if plural
+
+    def update_download_btn(self):
+        # Enable/Disable download button depending on options selected
+        if len(self.checked_applications_list) != 0:
+            # Enable download button
+            bg_color = '#29a04b'
+            self.download_btn.setEnabled(True)
+        else:
+            # Disable download button
+            bg_color = '#96989b'
+            self.download_btn.setEnabled(False)
+
+        # Change download button background color according to the state (enabled/disabled)
+        self.download_btn.setStyleSheet(
+            self.download_btn_qss + "QPushButton#download_btn {background-color: " + bg_color + ";}")
+
+    def confirm_download(self):
+        confirm_dialog = QMessageBox.question(self, "Confirm Download", 'Download '
+                                              + str(len(self.checked_applications_list)) + ' application' +
+
+                                              # Add s if plural
+                                              ('s' if len(self.checked_applications_list) > 1 else '') + '?',
+                                              QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+
+        if confirm_dialog == QMessageBox.Yes:
+            print('Yes clicked.')
+        else:
+            print('No clicked.')
 
     def retranslate_ui(self, main_screen_form):
         _translate = QtCore.QCoreApplication.translate
@@ -232,18 +282,27 @@ class MainScreenFormUi(object):
             self.category_label_list[i].setText(_translate("main_screen_form", category_name.title()))
 
             for package in self.root.findall('./category[@name="' + category_name + '"]/package'):
-                icon_path = package.find('icon').text
+                icon_name = package.find('icon').text
                 application_name = package.find('name').text
 
-                self.icon_label_list[j].setText(_translate("main_screen_form", "<html><head/><body><p><img "
-                                                           "src=\":/" + category_name + "/icons/" +
-                                                           icon_path + "\"/></p></body></html>"))
+                # Icon path as required by the .qrc
+                icon_path = category_name + "/icons/" + category_name.lower() + "/" + icon_name.lower()
+
+                # As per the .qrc, example,
+                #   category_name --> internet
+                #   /icons/
+                #   category_name --> internet/
+                #   icon_name --> chromium.png
+                self.icon_label_list[j].setText(_translate("main_screen_form", "<html><head/><body><p><img src=\":/"
+                                                           + icon_path + "\"/></p></body></html>"))
+
                 self.checkboxes_dict[application_name].setText(_translate("main_screen_form", application_name.title()))
-                print("Icon: " + icon_path)
+                print("Icon: " + icon_name)
 
                 j += 1
 
         # Download and Install Push Button
         self.download_btn.setText(_translate("main_screen_form", "Download and Install"))
+
 
 import assets.icons_rc

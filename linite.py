@@ -9,10 +9,6 @@ class AppWindow(QDialog):
         self.ui = main_screen.MainScreenFormUi()
         self.ui.setup_ui(self)
 
-        # Add State Changed Listener for the Checkboxes
-        for checkbox in self.ui.checkboxes_dict.values():
-            checkbox.stateChanged.connect(self.ui.checkbox_state_changed)
-
         self.show()
 
 

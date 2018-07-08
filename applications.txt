@@ -28,43 +28,41 @@ Inkscape
 Gthumb
 
 
-Documents (4)
+Documents (3)
 -------------
 LibreOffice
 Okular
-GNOME Office
-Oxygen Office
+Evince
 
 
-Utilities (9)
--------------
+Utilities (10)
+--------------
 Teamviewer
 Kazam
 SimpleScreenRecorder
 K3b
-VNC Connect
+TightVNC
+PuTTY
 UNetbootin
 Play On Linux
 QBittorent
 Docky
 
-Compression (6)
+Compression (5)
 ---------------
 PeaZip
-p7zip
-tar
+7zip
 gzip
-bzip
+bzip2
 unrar
 
 
-Development Tools (11)
-----------------------
+Development (10)
+----------------
 Python
 FileZilla
 Notepadqq
 JDK
-PuTTY
 Visual Studio Code
 Sublime Text
 PyCharm
@@ -73,12 +71,8 @@ Android Studio
 LAMP
 
 
-Terminals (7)
+Terminals (3)
 -------------
 Terminator
 Tilda
 Yakuake
-LXTerminal
-Konsole
-Gnome-Terminal
-xterm

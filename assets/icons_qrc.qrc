@@ -4,6 +4,54 @@
     <file>icons/internet/chromium.png</file>
     <file>icons/internet/opera.png</file>
   </qresource>
+  <qresource prefix="terminal">
+    <file>icons/terminal/tilda.png</file>
+    <file>icons/terminal/terminator.png</file>
+    <file>icons/terminal/yakuake.png</file>
+  </qresource>
+  <qresource prefix="development">
+    <file>icons/development/androidstudio.png</file>
+    <file>icons/development/filezilla.png</file>
+    <file>icons/development/intellij.png</file>
+    <file>icons/development/jdk.png</file>
+    <file>icons/development/lamp.png</file>
+    <file>icons/development/notepadqq.png</file>
+    <file>icons/development/pycharm.png</file>
+    <file>icons/development/python.png</file>
+    <file>icons/development/sublime.png</file>
+    <file>icons/development/vscode.png</file>
+  </qresource>
+  <qresource prefix="compression">
+    <file>icons/compression/7zip.png</file>
+    <file>icons/compression/bzip2.png</file>
+    <file>icons/compression/gzip.png</file>
+    <file>icons/compression/peazip.png</file>
+    <file>icons/compression/unrar.png</file>
+  </qresource>
+  <qresource prefix="utilities">
+    <file>icons/utilities/putty.png</file>
+    <file>icons/utilities/k3b.png</file>
+    <file>icons/utilities/docky.png</file>
+    <file>icons/utilities/kazam.png</file>
+    <file>icons/utilities/playonlinux.png</file>
+    <file>icons/utilities/qbitorrent.png</file>
+    <file>icons/utilities/simplescreenrecorder.png</file>
+    <file>icons/utilities/teamviewer.png</file>
+    <file>icons/utilities/tightvnc.png</file>
+    <file>icons/utilities/unetbootin.png</file>
+  </qresource>
+  <qresource prefix="documents">
+    <file>icons/documents/evince.png</file>
+    <file>icons/documents/libreoffice.png</file>
+    <file>icons/documents/okular.png</file>
+  </qresource>
+  <qresource prefix="graphics">
+    <file>icons/graphics/blender.png</file>
+    <file>icons/graphics/gimp.png</file>
+    <file>icons/graphics/gthumb.png</file>
+    <file>icons/graphics/inkscape.png</file>
+    <file>icons/graphics/krita.png</file>
+  </qresource>
   <qresource prefix="app">
     <file>icons/app/logo_icon.png</file>
     <file>icons/app/separator.png</file>
