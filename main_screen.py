@@ -5,14 +5,15 @@
 # Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
+import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+from download_screen import DownloadScreenFormUi
 import xml.etree.ElementTree as ET
 
-from PyQt5.QtWidgets import QMessageBox
 
-
-class MainScreenFormUi(QtWidgets.QMessageBox):
+class MainScreenFormUi(QtWidgets.QWidget):
     # Parse XML file to get packages/applications info
     tree = ET.parse('package_list.xml')
     root = tree.getroot()
@@ -34,6 +35,16 @@ class MainScreenFormUi(QtWidgets.QMessageBox):
 
     # Number of columns allowed in the grid
     GRID_COLUMNS = 5
+
+    def __init__(self):
+        super().__init__()
+
+        self.setup_ui(self)
+
+        # Center Window
+        self.move(QtWidgets.QApplication.desktop().screen().rect().center() - self.rect().center())
+
+        self.show()
 
     def setup_ui(self, main_screen_form):
 
@@ -248,9 +259,22 @@ class MainScreenFormUi(QtWidgets.QMessageBox):
                                               QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
 
         if confirm_dialog == QMessageBox.Yes:
-            print('Yes clicked.')
-        else:
-            print('No clicked.')
+            self.write_apps_to_file()
+            self.open_download_window()
+            self.close()
+
+    def open_download_window(self):
+        self.download_ui = DownloadScreenFormUi()
+
+        # Pass the list to the next window
+        self.download_ui.checked_applications_list = self.checked_applications_list.copy()
+        self.download_ui.show()
+
+    def write_apps_to_file(self):
+        temp_file = open(".download.txt", "a")
+
+        for application in self.checked_applications_list:
+            temp_file.write(application + "\n")
 
     def retranslate_ui(self, main_screen_form):
         _translate = QtCore.QCoreApplication.translate
@@ -304,5 +328,12 @@ class MainScreenFormUi(QtWidgets.QMessageBox):
         # Download and Install Push Button
         self.download_btn.setText(_translate("main_screen_form", "Download and Install"))
 
+    @staticmethod
+    def run():
+        app = QtWidgets.QApplication(sys.argv)
+        window = MainScreenFormUi()
+        sys.exit(app.exec_())
 
+
+MainScreenFormUi.run()
 import assets.icons_rc
