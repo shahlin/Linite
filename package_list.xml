@@ -14,8 +14,8 @@
             <name>Firefox</name>
             <icon>firefox.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm firefox</step>
                 </pacman>
                 <apt>sudo apt install -y firefox</apt>
             </commands>
@@ -24,7 +24,7 @@
             <name>Opera</name>
             <icon>opera.png</icon>   
             <commands>
-                <pacman steps="multipls"></pacman>
+                <pacman steps="multiple"></pacman>
                 <apt></apt>
             </commands>
         </package>

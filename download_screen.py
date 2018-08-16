@@ -7,11 +7,15 @@
 # WARNING! All changes made in this file will be lost!
 import os
 import subprocess
-
+import threading
+import xml.etree.ElementTree as ET
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class DownloadScreenFormUi(QtWidgets.QWidget):
+    # Parse XML file to get packages/applications info
+    tree = ET.parse('package_list.xml')
+    root = tree.getroot()
 
     # List of selected applications
     checked_applications_list = []
@@ -19,8 +23,6 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.setup_ui(self)
-
-        self.download()
 
         # Center Window
         self.move(QtWidgets.QApplication.desktop().screen().rect().center() - self.rect().center())
@@ -31,9 +33,11 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Delete temp file
         self.delete_temp_file()
 
-        self.get_distro()
-
+        # Show window
         self.show()
+
+        # Start download
+        self.download()
 
     def setup_ui(self, download_screen_form):
 
@@ -134,8 +138,54 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Decode bytes to string ( b'Antergos Linux\n' to Antergos Linux)
         return name.decode("utf-8")
 
+    def get_package_manager(self, distro):
+        package_managers = {
+            "Antergos Linux": "pacman"
+        }
+
+        return package_managers.get(distro, "Invalid distro specified")
+
     def download(self):
-        print(subprocess.check_output(['sudo', 'pacman', '-S', '--noconfirm', 'gimp']))
+        # Get distro name
+        # Using .rstrip() to remove the trailing \n
+        distro_name = self.get_distro().rstrip()
+
+        # Get package manager name
+        package_manager = self.get_package_manager(distro_name)
+
+        # Loop through checked list
+        # For each application, find the application in XML file
+        # Install the application using the package manager.
+        # If single, then simply execute, if multiple, execute each
+
+        for application in self.checked_applications_list:
+            # Loop through every package
+            for package in self.root.iter('package'):
+
+                command = ""
+
+                # If the current iteration in XML matches the application
+                if package.find('name').text == application:
+                    # Get the command
+                    if package_manager == 'pacman':
+                        # Check for steps
+                        steps = package.find('commands/' + package_manager).attrib['steps']
+
+                        if steps == 'single':
+                            # Single step
+                            command = package.find('commands/' + package_manager + '/step').text
+                        elif steps == 'multiple':
+                            # Multiple steps
+                            pass
+
+                    else:
+                        command = package.find('commands/' + package_manager).text
+
+
+                    # Create a thread that runs the download
+                    import threading
+                    download_thread = threading.Thread(target=self.run_download_command, args=[command.split()])
+                    download_thread.start()
 
 
 
@@ -148,6 +198,13 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
             os.remove(temp_file)
         else:
             print("Error: File not found")
+
+    def run_download_command(self, command):
+        # Run command
+        process = subprocess.Popen(command, stdout=subprocess.PIPE)
+        out, err = process.communicate()
+
+        print(out)
 
     def retranslate_ui(self, download_screen_form):
         _translate = QtCore.QCoreApplication.translate
