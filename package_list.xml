@@ -4,8 +4,8 @@
             <name>Chromium</name>
             <icon>chromium.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm chromium</step>
                 </pacman>
                 <apt>sudo apt install -y chromium-browser</apt>
             </commands>
@@ -24,7 +24,9 @@
             <name>Opera</name>
             <icon>opera.png</icon>   
             <commands>
-                <pacman steps="multiple"></pacman>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm opera</step>
+                </pacman>
                 <apt></apt>
             </commands>
         </package>
@@ -54,8 +56,8 @@
             <name>Pidgin</name>
             <icon>pidgin.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm pidgin</step>
                 </pacman>
                 <apt>sudo apt install -y pidgin</apt>
             </commands>
@@ -66,8 +68,8 @@
             <name>VLC</name>
             <icon>vlc.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm vlc</step>
                 </pacman>
                 <apt>sudo apt install -y vlc</apt>
             </commands>
@@ -76,8 +78,8 @@
             <name>Spotify</name>
             <icon>spotify.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm spotify</step>
                 </pacman>
                 <apt>sudo apt install -y spotify</apt>
             </commands>
@@ -86,8 +88,8 @@
             <name>Audacity</name>
             <icon>audacity.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm audacity</step>
                 </pacman>
                 <apt>sudo apt install -y vlc</apt>
             </commands>

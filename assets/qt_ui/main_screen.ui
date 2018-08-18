@@ -38,41 +38,14 @@ Line{
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0" colspan="3">
     <widget class="QLabel" name="separator_label">
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/app/icons/app/separator.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="about_label">
-     <property name="maximumSize">
-      <size>
-       <width>65</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Cantarell</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>About</string>
-     </property>
-     <property name="margin">
-      <number>5</number>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="2">
+   <item row="2" column="0" colspan="3">
     <widget class="QScrollArea" name="apps_container">
      <property name="styleSheet">
       <string notr="true">border:none;</string>
@@ -288,7 +261,7 @@ font-weight: bold;</string>
      </widget>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="3" column="0" colspan="3">
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
@@ -348,6 +321,19 @@ QPushButton#download_btn:hover:!pressed {
        <string>Download and Install</string>
       </property>
      </widget>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="about_btn">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>About</string>
+     </property>
     </widget>
    </item>
   </layout>

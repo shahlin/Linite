@@ -3,8 +3,13 @@
 # Form implementation generated from reading ui file 'main_screen.ui'
 #
 # Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
+
+# TODO Add download commands for applications
+# TODO Gitignore unwanted files
+# TODO Move Package List XML to cloud
+# TODO Test with other operating systems
+# TODO Documentation
+
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -75,24 +80,27 @@ class MainScreenFormUi(QtWidgets.QWidget):
         # Add separator to grid
         self.gridLayout_2.addWidget(self.separator_label, 1, 0, 1, 2)
 
-        # Create a label for 'About'
-        self.about_label = QtWidgets.QLabel(main_screen_form)
+        # Create a button for 'About'
+        self.about_btn = QtWidgets.QPushButton(main_screen_form)
 
-        # Set properties for About label
-        self.about_label.setMaximumSize(QtCore.QSize(65, 16777215))
+        # Set properties for About button
+        self.about_btn.setMaximumSize(QtCore.QSize(65, 16777215))
         font = QtGui.QFont()
         font.setFamily("Cantarell")
         font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
-        self.about_label.setFont(font)
+        self.about_btn.setFont(font)
+        self.about_btn.setStyleSheet("border:none;")
+
+        self.about_btn.clicked.connect(self.show_about)
 
         # Set cursor as pointing hand when hovered over 'About'
-        self.about_label.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.about_label.setObjectName("about_label")
+        self.about_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.about_btn.setObjectName("about_btn")
 
-        # Add 'About' label to grid
-        self.gridLayout_2.addWidget(self.about_label, 0, 1, 1, 1)
+        # Add 'About' button to grid
+        self.gridLayout_2.addWidget(self.about_btn, 0, 1, 1, 1)
 
         # Create a scroll area to contain the list of applications
         self.apps_container = QtWidgets.QScrollArea(main_screen_form)
@@ -184,27 +192,27 @@ class MainScreenFormUi(QtWidgets.QWidget):
         self.label.setObjectName("label")
 
         # Create a push button to proceed with downloading the applications
-        self.download_btn = QtWidgets.QPushButton(self.frame)
-        self.download_btn.setGeometry(QtCore.QRect(670, 10, 221, 41))
-        self.download_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.proceed_btn = QtWidgets.QPushButton(self.frame)
+        self.proceed_btn.setGeometry(QtCore.QRect(670, 10, 221, 41))
+        self.proceed_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
 
-        self.download_btn.clicked.connect(self.confirm_download)
+        self.proceed_btn.clicked.connect(self.confirm_download)
 
-        self.download_btn_qss = """
-            QPushButton#download_btn {
+        self.proceed_btn_qss = """
+            QPushButton#proceed_btn {
                 background-color: #96989b;
                 border-radius: 5px;
                 color: white;
             }
             
-            QPushButton#download_btn:hover:!pressed {
+            QPushButton#proceed_btn:hover:!pressed {
                 background-color: #20873d;
             }
             
         """
-        self.download_btn.setStyleSheet(self.download_btn_qss)
-        self.download_btn.setObjectName("download_btn")
-        self.download_btn.setEnabled(False)
+        self.proceed_btn.setStyleSheet(self.proceed_btn_qss)
+        self.proceed_btn.setObjectName("proceed_btn")
+        self.proceed_btn.setEnabled(False)
         self.gridLayout_2.addWidget(self.frame, 3, 0, 1, 2)
 
         self.retranslate_ui(main_screen_form)
@@ -223,8 +231,8 @@ class MainScreenFormUi(QtWidgets.QWidget):
         # Update number of applications selected/checked
         self.update_selected_count()
 
-        # Update the download button to be enabled or disabled according to the options selected
-        self.update_download_btn()
+        # Update the proceed button to be enabled or disabled according to the options selected
+        self.update_proceed_btn()
 
     def update_selected_count(self):
         print(self.checked_applications_list)
@@ -235,20 +243,20 @@ class MainScreenFormUi(QtWidgets.QWidget):
             _translate("main_screen_form", str(len(self.checked_applications_list)) + " application"
                        + ("s" if len(self.checked_applications_list) > 1 else '') + " selected"))  # Add s if plural
 
-    def update_download_btn(self):
+    def update_proceed_btn(self):
         # Enable/Disable download button depending on options selected
         if len(self.checked_applications_list) != 0:
-            # Enable download button
+            # Enable proceed button
             bg_color = '#29a04b'
-            self.download_btn.setEnabled(True)
+            self.proceed_btn.setEnabled(True)
         else:
-            # Disable download button
+            # Disable proceed button
             bg_color = '#96989b'
-            self.download_btn.setEnabled(False)
+            self.proceed_btn.setEnabled(False)
 
-        # Change download button background color according to the state (enabled/disabled)
-        self.download_btn.setStyleSheet(
-            self.download_btn_qss + "QPushButton#download_btn {background-color: " + bg_color + ";}")
+        # Change proceed button background color according to the state (enabled/disabled)
+        self.proceed_btn.setStyleSheet(
+            self.proceed_btn_qss + "QPushButton#proceed_btn {background-color: " + bg_color + ";}")
 
     def confirm_download(self):
         confirm_dialog = QMessageBox.question(self, "Confirm Download", 'Download '
@@ -269,6 +277,18 @@ class MainScreenFormUi(QtWidgets.QWidget):
         # Pass the list to the next window
         self.download_ui.checked_applications_list = self.checked_applications_list.copy()
         self.download_ui.show()
+
+    def show_about(self):
+        # Display a success message box
+        msg = QMessageBox()
+
+        about_body = ''
+
+        # Read about body from file
+        with open('about.txt') as f:
+            about_body = f.readline()
+
+        msg.about(self, 'About Linite', about_body)
 
     def write_apps_to_file(self):
         temp_file = open(".download.txt", "a")
@@ -293,8 +313,8 @@ class MainScreenFormUi(QtWidgets.QWidget):
                                                                     "src=\":/app/icons/app/separator.png\"/></p"
                                                                     "></body></html>"))
 
-        # About label
-        self.about_label.setText(_translate("main_screen_form", "About"))
+        # About button
+        self.about_btn.setText(_translate("main_screen_form", "About"))
 
         print(len(self.icon_label_list))
 
@@ -326,7 +346,7 @@ class MainScreenFormUi(QtWidgets.QWidget):
                 j += 1
 
         # Download and Install Push Button
-        self.download_btn.setText(_translate("main_screen_form", "Download and Install"))
+        self.proceed_btn.setText(_translate("main_screen_form", "Proceed"))
 
     @staticmethod
     def run():
