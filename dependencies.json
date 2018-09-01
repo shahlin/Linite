@@ -4,5 +4,9 @@
     ],
     "libraries": [
         {"name": "PyQt5", "link": "https://www.archlinux.org/packages/extra/x86_64/python-pyqt5/download/"}
+    ],
+    "utilities": [
+        {"name": "tar"},
+        {"name": "wget"}
     ]
 }

@@ -27,7 +27,7 @@
                 <pacman steps="single">
                     <step>sudo pacman -S --noconfirm opera</step>
                 </pacman>
-                <apt></apt>
+                <apt>sudo apt install -y opera</apt>
             </commands>
         </package>
     </category>
@@ -37,17 +37,21 @@
             <icon>skype.png</icon>
             <commands>
                 <pacman steps="multiple">
-                    <step></step>
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/skypeforlinux-stable-bin.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf skypeforlinux-stable-bin.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm skype*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO skype*</step>
                 </pacman>
-                <apt>sudo apt install -y opera</apt>
+                <apt>sudo apt install -y skype</apt>
             </commands>
         </package>
         <package>
             <name>Thunderbird</name>
             <icon>thunderbird.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm thunderbird</step>
                 </pacman>
                 <apt>sudo apt install -y opera</apt>
             </commands>
@@ -110,8 +114,8 @@
             <name>Blender</name>
             <icon>blender.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm blender</step>
                 </pacman>
                 <apt>sudo apt install -y blender</apt>
             </commands>
@@ -120,8 +124,8 @@
             <name>Krita</name>
             <icon>krita.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm krita</step>
                 </pacman>
                 <apt>sudo apt install -y krita</apt>
             </commands>
@@ -130,8 +134,8 @@
             <name>Inkscape</name>
             <icon>inkscape.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm inkscape</step>
                 </pacman>
                 <apt>sudo apt install -y inkscape</apt>
             </commands>
@@ -140,8 +144,8 @@
             <name>gThumb</name>
             <icon>gthumb.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm gthumb</step>
                 </pacman>
                 <apt>sudo apt install -y gthumb</apt>
             </commands>
@@ -152,8 +156,8 @@
             <name>Libre Office</name>
             <icon>libreoffice.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm libreoffice</step>
                 </pacman>
                 <apt>sudo apt install -y libreoffice</apt>
             </commands>
@@ -162,8 +166,8 @@
             <name>Okular</name>
             <icon>okular.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm okular</step>
                 </pacman>
                 <apt>sudo apt install -y okular</apt>
             </commands>
@@ -172,8 +176,8 @@
             <name>Evince</name>
             <icon>evince.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm evince</step>
                 </pacman>
                 <apt>sudo apt install -y evince</apt>
             </commands>
@@ -183,26 +187,62 @@
         <package>
             <name>Teamviewer</name>
             <icon>teamviewer.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y teamviewer</apt>
+            </commands>
         </package>
         <package>
             <name>Kazam</name>
             <icon>kazam.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y kazam</apt>
+            </commands>
         </package>
         <package>
             <name>SimpleScreenRecorder</name>
             <icon>simplescreenrecorder.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm simplescreenrecorder</step>
+                </pacman>
+                <apt>sudo apt install -y simplescreenrecorder</apt>
+            </commands>
         </package>
         <package>
             <name>K3b</name>
             <icon>k3b.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm k3b</step>
+                </pacman>
+                <apt>sudo apt install -y k3b</apt>
+            </commands>
         </package>
         <package>
             <name>TightVNC</name>
             <icon>tightvnc.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step></step>
+                </pacman>
+                <apt>sudo apt install -y tightvnc</apt>
+            </commands>
         </package>
         <package>
             <name>Putty</name>
             <icon>putty.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm putty</step>
+                </pacman>
+                <apt>sudo apt install -y putty</apt>
+            </commands>
         </package>
         <package>
             <name>UNetBootin</name>
@@ -211,6 +251,12 @@
         <package>
             <name>Play On Linux</name>
             <icon>playonlinux.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm playonlinux</step>
+                </pacman>
+                <apt>sudo apt install -y playonlinux</apt>
+            </commands>
         </package>
         <package>
             <name>QBittorent</name>
@@ -219,6 +265,12 @@
         <package>
             <name>Docky</name>
             <icon>docky.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm docky</step>
+                </pacman>
+                <apt>sudo apt install -y docky</apt>
+            </commands>
         </package>
     </category>
     <category name="compression">
@@ -227,46 +279,106 @@
             <icon>peazip.png</icon>
         </package>
         <package>
-            <name>7zip</name>
+            <name>P7zip</name>
             <icon>7zip.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm p7zip</step>
+                </pacman>
+                <apt>sudo apt install -y p7zip</apt>
+            </commands>
         </package>
         <package>
             <name>Gzip</name>
             <icon>gzip.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm gzip</step>
+                </pacman>
+                <apt>sudo apt install -y gzip</apt>
+            </commands>
         </package>
         <package>
             <name>bzip2</name>
             <icon>bzip2.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm bzip2</step>
+                </pacman>
+                <apt>sudo apt install -y bzip2</apt>
+            </commands>
         </package>
         <package>
             <name>Unrar</name>
             <icon>unrar.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm unrar</step>
+                </pacman>
+                <apt>sudo apt install -y unrar</apt>
+            </commands>
         </package>
     </category>
     <category name="development">
         <package>
             <name>Python</name>
             <icon>python.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm python</step>
+                </pacman>
+                <apt>sudo apt install -y python</apt>
+            </commands>
         </package>
         <package>
-            <name>Java Jdk</name>
+            <name>Open JDK</name>
             <icon>jdk.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm jdk10-openjdk</step>
+                </pacman>
+                <apt>sudo apt install -y jdk10-openjdk</apt>
+            </commands>
         </package>
         <package>
             <name>Filezilla</name>
             <icon>filezilla.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm filezilla</step>
+                </pacman>
+                <apt>sudo apt install -y filezilla</apt>
+            </commands>
         </package>
         <package>
             <name>Notepadqq</name>
             <icon>notepadqq.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm notepadqq</step>
+                </pacman>
+                <apt>sudo apt install -y notepadqq</apt>
+            </commands>
         </package>
         <package>
             <name>Sublime Text</name>
             <icon>sublime.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step>sudo pacman -S --noconfirm notepadqq</step>
+                </pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
         <package>
             <name>Visual Studio Code</name>
             <icon>vscode.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step>sudo pacman -S --noconfirm notepadqq</step>
+                </pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
         <package>
             <name>IntelliJ</name>
@@ -280,23 +392,37 @@
             <name>Android Studio</name>
             <icon>androidstudio.png</icon>
         </package>
-        <package>
-            <name>LAMP Stack</name>
-            <icon>lamp.png</icon>
-        </package>
     </category>
     <category name="terminal">
         <package>
             <name>Terminator</name>
             <icon>terminator.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm terminator</step>
+                </pacman>
+                <apt>sudo apt install -y terminator</apt>
+            </commands>
         </package>
         <package>
             <name>Yakuake</name>
             <icon>yakuake.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm yakuake</step>
+                </pacman>
+                <apt>sudo apt install -y yakuake</apt>
+            </commands>
         </package>
         <package>
             <name>Tilda</name>
             <icon>tilda.png</icon>
+            <commands>
+                <pacman steps="single">
+                    <step>sudo pacman -S --noconfirm tilda</step>
+                </pacman>
+                <apt>sudo apt install -y tilda</apt>
+            </commands>
         </package>
     </category>
 </packages>

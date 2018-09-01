@@ -57,7 +57,7 @@ bzip2
 unrar
 
 
-Development (10)
+Development (11)
 ----------------
 Python
 FileZilla
@@ -68,7 +68,6 @@ Sublime Text
 PyCharm
 IntelliJ
 Android Studio
-LAMP
 
 
 Terminals (3)
@@ -76,3 +75,19 @@ Terminals (3)
 Terminator
 Tilda
 Yakuake
+
+
+ARCH LINUX [multiple]
+---------------------
+Skype
+Teamviewer
+Kazam
+TightVNC
+UNetBootin
+QBittorent
+PeaZip
+Sublime Text (follow instructions on site)
+Visual Studio Code
+IntelliJ
+PyCharm
+Android Studio

@@ -152,7 +152,7 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
 
     def get_package_manager(self, distro):
         package_managers = {
-            "Antergos Linux": "pacman"
+            "Arch Linux": "pacman"
         }
 
         return package_managers.get(distro, "Invalid distro specified")
@@ -211,6 +211,12 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Set current status in GUI
         self.current_status_label.setText('Downloading and Installing ' + application)
 
+        # Variable holding each command for applications that require multiple steps for installation
+        installation_steps = []
+
+        # Multiple of single step flag
+        multiple_steps = False
+
         # Loop through every package in XML
         for package in self.root.iter('package'):
 
@@ -228,13 +234,24 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
                         command = package.find('commands/' + package_manager + '/step').text
                     elif steps == 'multiple':
                         # Multiple steps
-                        pass
 
+                        # Multiple or single step flag
+                        multiple_steps = True
+
+                        # Get list of commands from XML
+                        steps_list = package.find('commands/' + package_manager)
+                        for step in steps_list:
+                            installation_steps.append(step.text)
                 else:
                     command = package.find('commands/' + package_manager).text
 
+
                 # Set variables
-                self.download_worker.command = command.split()
+                if multiple_steps is True:
+                    self.download_worker.command = installation_steps
+                else:
+                    self.download_worker.command = command
+
                 self.download_worker.application_name = application
 
                 self.download_worker.download_signal.connect(self.show_download_completed)
@@ -322,12 +339,19 @@ class DownloadWorker(QThread):
 
     def __init__(self):
         super().__init__()
-        self.command = []
+        self.command = None
         self.application_name = ""
 
     def run(self):
-        # Run command
-        subprocess.call(self.command)
+        if isinstance(self.command, str):
+            # Run single command
+            subprocess.call(self.command.split())
+        elif isinstance(self.command, list):
+            # Run multiple commands
+            for each_command in self.command:
+                # Run each command
+                subprocess.call(each_command, shell=True)
+                print('done')
 
         # When the command has finished running
         self.download_signal.emit(self.application_name)
