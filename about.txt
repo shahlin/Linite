@@ -1,1 +1,1 @@
-Linite v1.0 [Last update: 18/08/18]<br><br>Linite is inspired by the windows application 'Ninite' and is supported by most of the commonly used Linux distributions.<br><br>Developed by Shahlin Ibrahim
+Linite v1.0 [Last update: 02/09/18]<br><br>Linite is inspired by the windows application 'Ninite' and is supported by most of the commonly used Linux distributions.<br><br>Developed by Shahlin Ibrahim
