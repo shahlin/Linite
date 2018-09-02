@@ -147,7 +147,14 @@ class MainScreenFormUi(QtWidgets.QWidget):
                 # Get package manager so we can disable applications that are not supported for certain distros
                 package_manager = self.get_package_manager(self.get_distro().rstrip())
 
-                steps = package.find('commands/pacman').attrib['steps']
+                steps = ""
+
+                try:
+                    steps = package.find('commands/' + package_manager).attrib['steps']
+                except AttributeError:
+                    pass
+                except KeyError:
+                    pass
 
                 application_name = package.find('name').text
 
