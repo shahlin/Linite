@@ -189,7 +189,11 @@
             <icon>teamviewer.png</icon>
             <commands>
                 <pacman steps="multiple">
-                    <step></step>
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/teamviewer.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf teamviewer.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm teamviewer*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO teamviewer*</step>
                 </pacman>
                 <apt>sudo apt install -y teamviewer</apt>
             </commands>
@@ -198,9 +202,7 @@
             <name>Kazam</name>
             <icon>kazam.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
+                <pacman steps="unavailable"></pacman>
                 <apt>sudo apt install -y kazam</apt>
             </commands>
         </package>
@@ -228,9 +230,7 @@
             <name>TightVNC</name>
             <icon>tightvnc.png</icon>
             <commands>
-                <pacman steps="multiple">
-                    <step></step>
-                </pacman>
+                <pacman steps="unavailable"></pacman>
                 <apt>sudo apt install -y tightvnc</apt>
             </commands>
         </package>
@@ -247,6 +247,9 @@
         <package>
             <name>UNetBootin</name>
             <icon>unetbootin.png</icon>
+            <commands>
+                <pacman steps="unavailable"></pacman>
+            </commands>
         </package>
         <package>
             <name>Play On Linux</name>
@@ -259,8 +262,12 @@
             </commands>
         </package>
         <package>
-            <name>QBittorent</name>
+            <name>QBittorrent</name>
             <icon>qbitorrent.png</icon>
+            <commands>
+                <pacman steps="unavailable"></pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
         <package>
             <name>Docky</name>
@@ -277,6 +284,10 @@
         <package>
             <name>PeaZip</name>
             <icon>peazip.png</icon>
+            <commands>
+                <pacman steps="unavailable"></pacman>
+                <apt>sudo apt install -y teamviewer</apt>
+            </commands>
         </package>
         <package>
             <name>P7zip</name>
@@ -361,11 +372,15 @@
             </commands>
         </package>
         <package>
-            <name>Sublime Text</name>
+            <name>Sublime</name>
             <icon>sublime.png</icon>
             <commands>
                 <pacman steps="multiple">
-                    <step>sudo pacman -S --noconfirm notepadqq</step>
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/sublime-text-dev.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf sublime*.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm sublime*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO sublime*</step>
                 </pacman>
                 <apt>sudo apt install -y sublime-text</apt>
             </commands>
@@ -375,22 +390,50 @@
             <icon>vscode.png</icon>
             <commands>
                 <pacman steps="multiple">
-                    <step>sudo pacman -S --noconfirm notepadqq</step>
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/visual-studio-code-bin.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf visual-studio*.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm visual-studio*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO visual-studio* code*</step>
                 </pacman>
                 <apt>sudo apt install -y sublime-text</apt>
             </commands>
         </package>
         <package>
-            <name>IntelliJ</name>
+            <name>IntelliJ Ultimate Edition</name>
             <icon>intellij.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/intellij-idea-ultimate-edition.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf intellij*.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm intellij*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO intellij* idea* jetbrains*</step>
+                </pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
         <package>
-            <name>Pycharm</name>
+            <name>Pycharm Professional</name>
             <icon>pycharm.png</icon>
+            <commands>
+                <pacman steps="unavailable"></pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
         <package>
             <name>Android Studio</name>
             <icon>androidstudio.png</icon>
+            <commands>
+                <pacman steps="multiple">
+                    <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/android-studio.tar.gz</step>
+                    <step>tar --transform 's/.*\///' -xzf android*.tar.gz</step>
+                    <step>su -c "makepkg -s" `logname`</step>
+                    <step>sudo pacman -U --noconfirm android*.pkg.tar</step>
+                    <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO android* jetbrains*</step>
+                </pacman>
+                <apt>sudo apt install -y sublime-text</apt>
+            </commands>
         </package>
     </category>
     <category name="terminal">

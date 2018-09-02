@@ -140,7 +140,8 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Get every application from file and add it to the list
         with open(".download.txt", "r") as f:
             for line in f:
-                self.checked_applications_list.extend(line.split())
+                # Get full names of applications and insert it to the list
+                self.checked_applications_list.extend(line.split('\n'))
 
         self.applications_count = len(self.checked_applications_list)
 
@@ -161,11 +162,9 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Display a success message box
         msg = QMessageBox()
 
-        about_body = ''
-
         # Read about body from file
         with open('about.txt') as f:
-            about_body = f.readlines()
+            about_body = f.readline()
 
         msg.about(self, 'About Linite', about_body)
 
@@ -224,6 +223,7 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
 
             # If the current iteration in XML matches the application
             if package.find('name').text == application:
+
                 # Get the command
                 if package_manager == 'pacman':
                     # Check for steps
@@ -242,9 +242,13 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
                         steps_list = package.find('commands/' + package_manager)
                         for step in steps_list:
                             installation_steps.append(step.text)
+                    elif steps == 'unavailable':
+                        command = "echo unavailable"
                 else:
                     command = package.find('commands/' + package_manager).text
 
+
+                print(installation_steps)
 
                 # Set variables
                 if multiple_steps is True:
@@ -351,7 +355,6 @@ class DownloadWorker(QThread):
             for each_command in self.command:
                 # Run each command
                 subprocess.call(each_command, shell=True)
-                print('done')
 
         # When the command has finished running
         self.download_signal.emit(self.application_name)

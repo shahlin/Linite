@@ -79,15 +79,15 @@ Yakuake
 
 ARCH LINUX [multiple]
 ---------------------
-Skype
-Teamviewer
-Kazam
-TightVNC
-UNetBootin
-QBittorent
-PeaZip
-Sublime Text (follow instructions on site)
-Visual Studio Code
-IntelliJ
-PyCharm
-Android Studio
+Skype ------------------------------------------------> Done
+Teamviewer -------------------------------------------> Done
+Kazam ------------------------------------------------> Unavailable
+TightVNC ---------------------------------------------> Unavailable
+UNetBootin -------------------------------------------> Unavailable
+QBittorent -------------------------------------------> Unavailable
+PeaZip -----------------------------------------------> Unavailable
+Sublime Text -----------------------------------------> Done
+Visual Studio Code -----------------------------------> Done
+IntelliJ ---------------------------------------------> Done
+PyCharm ----------------------------------------------> Unavailable
+Android Studio ---------------------------------------> Done

@@ -16,6 +16,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from download_screen import DownloadScreenFormUi
 import xml.etree.ElementTree as ET
+import subprocess
 
 
 class MainScreenFormUi(QtWidgets.QWidget):
@@ -143,6 +144,11 @@ class MainScreenFormUi(QtWidgets.QWidget):
 
             # Loop through each package in a category
             for package in self.root.findall('./category[@name="' + category_name + '"]/package'):
+                # Get package manager so we can disable applications that are not supported for certain distros
+                package_manager = self.get_package_manager(self.get_distro().rstrip())
+
+                steps = package.find('commands/pacman').attrib['steps']
+
                 application_name = package.find('name').text
 
                 self.icon_label = QtWidgets.QLabel(self.scrollAreaWidgetContents_2)
@@ -157,6 +163,10 @@ class MainScreenFormUi(QtWidgets.QWidget):
                 self.checkbox_widget.setObjectName(application_name + "_checkbox")
                 self.checkbox_widget.setStyleSheet("margin-bottom:15px;")
                 self.apps_grid_container.addWidget(self.checkbox_widget, application_row + 1, col, 1, 1)
+
+                # If the package is not available for download, disable the checkbox
+                if steps == 'unavailable':
+                    self.checkbox_widget.setEnabled(False)
 
                 self.checkboxes_dict[application_name] = self.checkbox_widget
 
@@ -217,6 +227,19 @@ class MainScreenFormUi(QtWidgets.QWidget):
 
         self.retranslate_ui(main_screen_form)
         QtCore.QMetaObject.connectSlotsByName(main_screen_form)
+
+    def get_distro(self):
+        name = subprocess.check_output(['./distro_name.sh'])
+
+        # Decode bytes to string ( b'Antergos Linux\n' to Antergos Linux )
+        return name.decode("utf-8")
+
+    def get_package_manager(self, distro):
+        package_managers = {
+            "Arch Linux": "pacman"
+        }
+
+        return package_managers.get(distro, "Invalid distro specified")
 
     def checkbox_state_changed(self):
         for key, value in self.checkboxes_dict.items():
@@ -281,8 +304,6 @@ class MainScreenFormUi(QtWidgets.QWidget):
     def show_about(self):
         # Display a success message box
         msg = QMessageBox()
-
-        about_body = ''
 
         # Read about body from file
         with open('about.txt') as f:

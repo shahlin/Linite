@@ -4,8 +4,8 @@
     <list default="true" id="9f961e73-e08c-4082-a1fe-a6d799f144ea" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/applications.txt" beforeDir="false" afterPath="$PROJECT_DIR$/applications.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies.json" beforeDir="false" afterPath="$PROJECT_DIR$/dependencies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/download_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_screen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/package_list.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +20,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_screen.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_screen.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            <state relative-caret-position="17">
+              <caret line="157" column="80" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#322#332#0" expanded="true" />
+                <element signature="e#1138#1331#0" />
+                <element signature="e#4644#4803#0" />
+                <element signature="e#7976#8288#0" />
+                <element signature="e#8653#8817#0" />
+                <element signature="e#8665#9274#0" />
+                <element signature="e#8725#9048#0" />
+                <element signature="e#8801#8909#0" />
+                <element signature="e#8944#9048#0" />
+                <element signature="e#9321#9708#0" />
+                <element signature="e#9752#10345#0" />
+                <element signature="e#9880#9982#0" />
+                <element signature="e#10009#10113#0" />
+                <element signature="e#10387#10992#0" />
+                <element signature="e#10902#10992#0" />
+                <element signature="e#11038#11246#0" />
+                <element signature="e#11282#11531#0" />
+                <element signature="e#11575#11721#0" />
+                <element signature="e#11779#14155#0" />
+                <element signature="e#11945#11969#0" />
+                <element signature="e#12061#12280#0" />
+                <element signature="e#12378#12606#0" />
+                <element signature="e#12843#14035#0" />
+                <element signature="e#13158#14035#0" />
+                <element signature="e#13431#13458#0" />
+                <element signature="e#14198#14302#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -32,20 +61,40 @@
       <file leaf-file-name="download_screen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/download_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="351" column="34" selection-start-line="351" selection-start-column="34" selection-end-line="351" selection-end-column="34" />
+            <state relative-caret-position="297">
+              <caret line="193" column="39" lean-forward="true" selection-start-line="193" selection-start-column="39" selection-end-line="193" selection-end-column="48" />
               <folding>
-                <element signature="e#203#212#0" expanded="true" />
+                <element signature="n#!!doc" />
+                <element signature="e#907#1271#0" />
+                <element signature="e#1328#5166#0" />
+                <element signature="e#5213#5485#0" />
+                <element signature="e#5517#5681#0" />
+                <element signature="e#5734#5872#0" />
+                <element signature="e#5753#5799#0" />
+                <element signature="e#5908#6158#0" />
+                <element signature="e#6322#6805#0" />
+                <element signature="e#7141#7168#0" />
+                <element signature="e#9372#9447#0" />
+                <element signature="e#9748#9963#0" />
+                <element signature="e#9748#9892#1" />
+                <element signature="e#10030#10478#0" />
+                <element signature="e#10520#10733#0" />
+                <element signature="e#10630#10676#0" />
+                <element signature="e#10806#11155#0" />
+                <element signature="e#11217#12383#0" />
+                <element signature="e#11567#11794#0" />
+                <element signature="e#12016#12252#0" />
+                <element signature="e#12489#12570#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package_list.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package_list.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="-4131">
+              <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -62,8 +111,8 @@
       <file leaf-file-name="applications.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
+            <state relative-caret-position="758">
+              <caret line="91" column="53" lean-forward="true" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -103,11 +152,11 @@
         <option value="$PROJECT_DIR$/confirm_dialog.py" />
         <option value="$PROJECT_DIR$/linite.py" />
         <option value="$PROJECT_DIR$/about.txt" />
-        <option value="$PROJECT_DIR$/main_screen.py" />
-        <option value="$PROJECT_DIR$/applications.txt" />
         <option value="$PROJECT_DIR$/dependencies.json" />
-        <option value="$PROJECT_DIR$/download_screen.py" />
         <option value="$PROJECT_DIR$/package_list.xml" />
+        <option value="$PROJECT_DIR$/download_screen.py" />
+        <option value="$PROJECT_DIR$/applications.txt" />
+        <option value="$PROJECT_DIR$/main_screen.py" />
       </list>
     </option>
   </component>
@@ -121,7 +170,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,6 +181,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,7 +301,7 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989224" visible="true" weight="0.16816026" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32819384" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32928178" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32928178" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -280,7 +329,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="22" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -296,7 +345,27 @@
         <state relative-caret-position="3366">
           <caret line="198" column="43" selection-start-line="198" selection-start-column="43" selection-end-line="198" selection-end-column="43" />
           <folding>
-            <element signature="e#203#212#0" expanded="true" />
+            <element signature="n#!!doc" />
+            <element signature="e#907#1271#0" />
+            <element signature="e#1328#5166#0" />
+            <element signature="e#5213#5485#0" />
+            <element signature="e#5517#5681#0" />
+            <element signature="e#5734#5872#0" />
+            <element signature="e#5753#5799#0" />
+            <element signature="e#5908#6158#0" />
+            <element signature="e#6322#6805#0" />
+            <element signature="e#7141#7168#0" />
+            <element signature="e#9372#9447#0" />
+            <element signature="e#9748#9963#0" />
+            <element signature="e#9748#9892#1" />
+            <element signature="e#10030#10478#0" />
+            <element signature="e#10520#10733#0" />
+            <element signature="e#10630#10676#0" />
+            <element signature="e#10806#11155#0" />
+            <element signature="e#11217#12383#0" />
+            <element signature="e#11567#11794#0" />
+            <element signature="e#12016#12252#0" />
+            <element signature="e#12489#12570#0" />
           </folding>
         </state>
       </provider>
@@ -320,7 +389,27 @@
         <state relative-caret-position="3179">
           <caret line="187" column="35" selection-start-line="187" selection-start-column="35" selection-end-line="187" selection-end-column="35" />
           <folding>
-            <element signature="e#203#212#0" expanded="true" />
+            <element signature="n#!!doc" />
+            <element signature="e#907#1271#0" />
+            <element signature="e#1328#5166#0" />
+            <element signature="e#5213#5485#0" />
+            <element signature="e#5517#5681#0" />
+            <element signature="e#5734#5872#0" />
+            <element signature="e#5753#5799#0" />
+            <element signature="e#5908#6158#0" />
+            <element signature="e#6322#6805#0" />
+            <element signature="e#7141#7168#0" />
+            <element signature="e#9372#9447#0" />
+            <element signature="e#9748#9963#0" />
+            <element signature="e#9748#9892#1" />
+            <element signature="e#10030#10478#0" />
+            <element signature="e#10520#10733#0" />
+            <element signature="e#10630#10676#0" />
+            <element signature="e#10806#11155#0" />
+            <element signature="e#11217#12383#0" />
+            <element signature="e#11567#11794#0" />
+            <element signature="e#12016#12252#0" />
+            <element signature="e#12489#12570#0" />
           </folding>
         </state>
       </provider>
@@ -534,20 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dependencies.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -555,20 +630,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/download_screen.py">
+    <entry file="file://$PROJECT_DIR$/applications.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="351" column="34" selection-start-line="351" selection-start-column="34" selection-end-line="351" selection-end-column="34" />
-          <folding>
-            <element signature="e#203#212#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="758">
+          <caret line="91" column="53" lean-forward="true" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        <state relative-caret-position="-4131">
+          <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="193" column="39" lean-forward="true" selection-start-line="193" selection-start-column="39" selection-end-line="193" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#907#1271#0" />
+            <element signature="e#1328#5166#0" />
+            <element signature="e#5213#5485#0" />
+            <element signature="e#5517#5681#0" />
+            <element signature="e#5734#5872#0" />
+            <element signature="e#5753#5799#0" />
+            <element signature="e#5908#6158#0" />
+            <element signature="e#6322#6805#0" />
+            <element signature="e#7141#7168#0" />
+            <element signature="e#9372#9447#0" />
+            <element signature="e#9748#9963#0" />
+            <element signature="e#9748#9892#1" />
+            <element signature="e#10030#10478#0" />
+            <element signature="e#10520#10733#0" />
+            <element signature="e#10630#10676#0" />
+            <element signature="e#10806#11155#0" />
+            <element signature="e#11217#12383#0" />
+            <element signature="e#11567#11794#0" />
+            <element signature="e#12016#12252#0" />
+            <element signature="e#12489#12570#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="157" column="80" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#322#332#0" expanded="true" />
+            <element signature="e#1138#1331#0" />
+            <element signature="e#4644#4803#0" />
+            <element signature="e#7976#8288#0" />
+            <element signature="e#8653#8817#0" />
+            <element signature="e#8665#9274#0" />
+            <element signature="e#8725#9048#0" />
+            <element signature="e#8801#8909#0" />
+            <element signature="e#8944#9048#0" />
+            <element signature="e#9321#9708#0" />
+            <element signature="e#9752#10345#0" />
+            <element signature="e#9880#9982#0" />
+            <element signature="e#10009#10113#0" />
+            <element signature="e#10387#10992#0" />
+            <element signature="e#10902#10992#0" />
+            <element signature="e#11038#11246#0" />
+            <element signature="e#11282#11531#0" />
+            <element signature="e#11575#11721#0" />
+            <element signature="e#11779#14155#0" />
+            <element signature="e#11945#11969#0" />
+            <element signature="e#12061#12280#0" />
+            <element signature="e#12378#12606#0" />
+            <element signature="e#12843#14035#0" />
+            <element signature="e#13158#14035#0" />
+            <element signature="e#13431#13458#0" />
+            <element signature="e#14198#14302#0" />
+          </folding>
         </state>
       </provider>
     </entry>
