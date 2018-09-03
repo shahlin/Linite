@@ -21,12 +21,7 @@
             <icon>opera.png</icon>   
             <commands>
                 <pacman>sudo pacman -S --noconfirm opera</pacman>
-                <apt steps="multiple">
-                    <step>sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'</step>
-                    <step>sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'</step>
-                    <step>sudo apt-get update</step>
-                    <step>sudo apt-get install opera</step>
-                </apt>
+                <apt steps="unavailable"></apt>
             </commands>
         </package>
     </category>
@@ -42,7 +37,12 @@
                     <step>sudo pacman -U --noconfirm skype*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO skype*</step>
                 </pacman>
-                <apt>sudo apt install -y skype</apt>
+                <apt steps="multiple">
+                    <step>wget https://repo.skype.com/latest/skypeforlinux-64.deb</step>
+                    <step>sudo dpkg -i skypeforlinux-64.deb</step>
+                    <step>sudo apt install -yf</step>
+                    <step>rm -rf skype*</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -50,7 +50,7 @@
             <icon>thunderbird.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm thunderbird</pacman>
-                <apt>sudo apt install -y opera</apt>
+                <apt>sudo apt install -y thunderbird</apt>
             </commands>
         </package>
         <package>
@@ -76,7 +76,12 @@
             <icon>spotify.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm spotify</pacman>
-                <apt>sudo apt install -y spotify</apt>
+                <apt steps="multiple">
+                    <step>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90</step>
+                    <step>echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list</step>
+                    <step>sudo apt update</step>
+                    <step>sudo apt install --allow-unauthenticated spotify-client</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -84,7 +89,7 @@
             <icon>audacity.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm audacity</pacman>
-                <apt>sudo apt install -y vlc</apt>
+                <apt>sudo apt install -y audacity</apt>
             </commands>
         </package>
     </category>
@@ -168,7 +173,12 @@
                     <step>sudo pacman -U --noconfirm teamviewer*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO teamviewer*</step>
                 </pacman>
-                <apt>sudo apt install -y teamviewer</apt>
+                <apt steps="multiple">
+                    <step>wget https://download.teamviewer.com/download/version_12x/teamviewer_i386.deb</step>
+                    <step>sudo dpkg -i teamviewer*.deb</step>
+                    <step>sudo apt install -yf</step>
+                    <step>rm teamviewer*</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -200,7 +210,7 @@
             <icon>tightvnc.png</icon>
             <commands>
                 <pacman steps="unavailable"></pacman>
-                <apt>sudo apt install -y tightvnc</apt>
+                <apt>sudo apt install -y tightvncserver</apt>
             </commands>
         </package>
         <package>
@@ -216,6 +226,7 @@
             <icon>unetbootin.png</icon>
             <commands>
                 <pacman steps="unavailable"></pacman>
+                <apt steps="unavailable"></apt>
             </commands>
         </package>
         <package>
@@ -223,7 +234,12 @@
             <icon>playonlinux.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm playonlinux</pacman>
-                <apt>sudo apt install -y playonlinux</apt>
+                <apt steps="multiple">
+                    <step>wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -</step>
+                    <step>sudo wget http://deb.playonlinux.com/playonlinux_precise.list -O /etc/apt/sources.list.d/playonlinux.list</step>
+                    <step>sudo apt update</step>
+                    <step>sudo apt install -y playonlinux</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -231,7 +247,7 @@
             <icon>qbitorrent.png</icon>
             <commands>
                 <pacman steps="unavailable"></pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt>sudo apt install -y qbittorrent</apt>
             </commands>
         </package>
         <package>
@@ -249,7 +265,7 @@
             <icon>peazip.png</icon>
             <commands>
                 <pacman steps="unavailable"></pacman>
-                <apt>sudo apt install -y teamviewer</apt>
+                <apt steps="unavailable"></apt>
             </commands>
         </package>
         <package>
@@ -281,7 +297,7 @@
             <icon>unrar.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm unrar</pacman>
-                <apt>sudo apt install -y unrar</apt>
+                <apt steps="unavailable"></apt>
             </commands>
         </package>
     </category>
@@ -299,7 +315,7 @@
             <icon>jdk.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm jdk10-openjdk</pacman>
-                <apt>sudo apt install -y jdk10-openjdk</apt>
+                <apt>sudo apt install -y openjdk-8-jre</apt>
             </commands>
         </package>
         <package>
@@ -315,7 +331,12 @@
             <icon>notepadqq.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm notepadqq</pacman>
-                <apt>sudo apt install -y notepadqq</apt>
+                <apt steps="multiple">
+                    <step>wget https://launchpad.net/~notepadqq-team/+archive/ubuntu/notepadqq/+build/14811376/+files/notepadqq-common_1.4.4-1~xenial1_all.deb</step>
+                    <step>sudo dpkg -i notepadqq*</step>
+                    <step>sudo apt install -yf</step>
+                    <step>rm notepadqq*</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -329,7 +350,13 @@
                     <step>sudo pacman -U --noconfirm sublime*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO sublime*</step>
                 </pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt steps="multiple">
+                    <step>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -</step>
+                    <step>sudo apt-get install apt-transport-https</step>
+                    <step>echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list</step>
+                    <step>sudo apt update</step>
+                    <step>sudo apt install -y sublime-text</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -343,7 +370,7 @@
                     <step>sudo pacman -U --noconfirm visual-studio*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO visual-studio* code*</step>
                 </pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt steps="unavailable"></apt>
             </commands>
         </package>
         <package>
@@ -357,15 +384,23 @@
                     <step>sudo pacman -U --noconfirm intellij*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO intellij* idea* jetbrains*</step>
                 </pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt steps="multiple">
+                    <step>wget https://download.jetbrains.com/idea/ideaIU-2018.2.2.tar.gz</step>
+                    <step>sudo tar -xvf ideaIU*.tar.gz -C /opt/</step>
+                    <step>rm ideaUI*</step>
+                </apt>
             </commands>
         </package>
         <package>
-            <name>Pycharm Professional</name>
+            <name>Pycharm Community Edition</name>
             <icon>pycharm.png</icon>
             <commands>
                 <pacman steps="unavailable"></pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt steps="multiple">
+                    <step>wget https://download.jetbrains.com/python/pycharm-community-2018.2.2.tar.gz</step>
+                    <step>sudo tar -xvf pycharm*.tar.gz -C /opt/</step>
+                    <step>rm pycharm*</step>
+                </apt>
             </commands>
         </package>
         <package>
@@ -379,7 +414,12 @@
                     <step>sudo pacman -U --noconfirm android*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO android* jetbrains*</step>
                 </pacman>
-                <apt>sudo apt install -y sublime-text</apt>
+                <apt steps="multiple">
+                    <step>wget https://dl.google.com/dl/android/studio/ide-zips/3.1.4.0/android-studio-ide-173.4907809-linux.zip</step>
+                    <step>mkdir /opt/android-studio</step>
+                    <step>unzip android-studio*.zip -d /opt/android-studio</step>
+                    <step>rm android-studio*</step>
+                </apt>
             </commands>
         </package>
     </category>

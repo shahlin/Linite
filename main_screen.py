@@ -5,7 +5,10 @@
 # Created by: PyQt5 UI code generator 5.10.1
 
 # TODO Add download commands for applications
+# TODO Fix download percentage
+# TODO Add Extra detail for some applications like IntelliJ for debian downloaded to /opt folder (maybe add element in XML)
 # TODO Gitignore unwanted files
+# TODO Add 'Check terminal for details' label
 # TODO Move Package List XML to cloud
 # TODO Test with other operating systems
 # TODO Documentation
