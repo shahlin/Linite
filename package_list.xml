@@ -4,19 +4,15 @@
             <name>Chromium</name>
             <icon>chromium.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm chromium</step>
-                </pacman>
-                <apt>sudo apt install -y chromium-browser</apt>
+                <pacman>sudo pacman -S --noconfirm chromium</pacman>
+                <apt>sudo apt install -y chromium</apt>
             </commands>
         </package>
         <package>
             <name>Firefox</name>
             <icon>firefox.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm firefox</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm firefox</pacman>
                 <apt>sudo apt install -y firefox</apt>
             </commands>
         </package>
@@ -24,10 +20,13 @@
             <name>Opera</name>
             <icon>opera.png</icon>   
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm opera</step>
-                </pacman>
-                <apt>sudo apt install -y opera</apt>
+                <pacman>sudo pacman -S --noconfirm opera</pacman>
+                <apt steps="multiple">
+                    <step>sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'</step>
+                    <step>sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'</step>
+                    <step>sudo apt-get update</step>
+                    <step>sudo apt-get install opera</step>
+                </apt>
             </commands>
         </package>
     </category>
@@ -50,9 +49,7 @@
             <name>Thunderbird</name>
             <icon>thunderbird.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm thunderbird</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm thunderbird</pacman>
                 <apt>sudo apt install -y opera</apt>
             </commands>
         </package>
@@ -60,9 +57,7 @@
             <name>Pidgin</name>
             <icon>pidgin.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm pidgin</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm pidgin</pacman>
                 <apt>sudo apt install -y pidgin</apt>
             </commands>
         </package>
@@ -72,9 +67,7 @@
             <name>VLC</name>
             <icon>vlc.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm vlc</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm vlc</pacman>
                 <apt>sudo apt install -y vlc</apt>
             </commands>
         </package>
@@ -82,9 +75,7 @@
             <name>Spotify</name>
             <icon>spotify.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm spotify</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm spotify</pacman>
                 <apt>sudo apt install -y spotify</apt>
             </commands>
         </package>
@@ -92,9 +83,7 @@
             <name>Audacity</name>
             <icon>audacity.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm audacity</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm audacity</pacman>
                 <apt>sudo apt install -y vlc</apt>
             </commands>
         </package>
@@ -104,9 +93,7 @@
             <name>GIMP</name>
             <icon>gimp.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm gimp</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm gimp</pacman>
                 <apt>sudo apt install -y gimp</apt>
             </commands>
         </package>
@@ -114,9 +101,7 @@
             <name>Blender</name>
             <icon>blender.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm blender</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm blender</pacman>
                 <apt>sudo apt install -y blender</apt>
             </commands>
         </package>
@@ -124,9 +109,7 @@
             <name>Krita</name>
             <icon>krita.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm krita</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm krita</pacman>
                 <apt>sudo apt install -y krita</apt>
             </commands>
         </package>
@@ -134,9 +117,7 @@
             <name>Inkscape</name>
             <icon>inkscape.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm inkscape</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm inkscape</pacman>
                 <apt>sudo apt install -y inkscape</apt>
             </commands>
         </package>
@@ -144,9 +125,7 @@
             <name>gThumb</name>
             <icon>gthumb.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm gthumb</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm gthumb</pacman>
                 <apt>sudo apt install -y gthumb</apt>
             </commands>
         </package>
@@ -156,9 +135,7 @@
             <name>Libre Office</name>
             <icon>libreoffice.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm libreoffice</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm libreoffice</pacman>
                 <apt>sudo apt install -y libreoffice</apt>
             </commands>
         </package>
@@ -166,9 +143,7 @@
             <name>Okular</name>
             <icon>okular.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm okular</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm okular</pacman>
                 <apt>sudo apt install -y okular</apt>
             </commands>
         </package>
@@ -176,9 +151,7 @@
             <name>Evince</name>
             <icon>evince.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm evince</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm evince</pacman>
                 <apt>sudo apt install -y evince</apt>
             </commands>
         </package>
@@ -210,9 +183,7 @@
             <name>SimpleScreenRecorder</name>
             <icon>simplescreenrecorder.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm simplescreenrecorder</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm simplescreenrecorder</pacman>
                 <apt>sudo apt install -y simplescreenrecorder</apt>
             </commands>
         </package>
@@ -220,9 +191,7 @@
             <name>K3b</name>
             <icon>k3b.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm k3b</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm k3b</pacman>
                 <apt>sudo apt install -y k3b</apt>
             </commands>
         </package>
@@ -238,9 +207,7 @@
             <name>Putty</name>
             <icon>putty.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm putty</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm putty</pacman>
                 <apt>sudo apt install -y putty</apt>
             </commands>
         </package>
@@ -255,9 +222,7 @@
             <name>Play On Linux</name>
             <icon>playonlinux.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm playonlinux</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm playonlinux</pacman>
                 <apt>sudo apt install -y playonlinux</apt>
             </commands>
         </package>
@@ -273,9 +238,7 @@
             <name>Docky</name>
             <icon>docky.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm docky</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm docky</pacman>
                 <apt>sudo apt install -y docky</apt>
             </commands>
         </package>
@@ -293,9 +256,7 @@
             <name>P7zip</name>
             <icon>7zip.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm p7zip</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm p7zip</pacman>
                 <apt>sudo apt install -y p7zip</apt>
             </commands>
         </package>
@@ -303,9 +264,7 @@
             <name>Gzip</name>
             <icon>gzip.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm gzip</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm gzip</pacman>
                 <apt>sudo apt install -y gzip</apt>
             </commands>
         </package>
@@ -313,9 +272,7 @@
             <name>bzip2</name>
             <icon>bzip2.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm bzip2</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm bzip2</pacman>
                 <apt>sudo apt install -y bzip2</apt>
             </commands>
         </package>
@@ -323,9 +280,7 @@
             <name>Unrar</name>
             <icon>unrar.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm unrar</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm unrar</pacman>
                 <apt>sudo apt install -y unrar</apt>
             </commands>
         </package>
@@ -335,9 +290,7 @@
             <name>Python</name>
             <icon>python.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm python</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm python</pacman>
                 <apt>sudo apt install -y python</apt>
             </commands>
         </package>
@@ -345,9 +298,7 @@
             <name>Open JDK</name>
             <icon>jdk.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm jdk10-openjdk</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm jdk10-openjdk</pacman>
                 <apt>sudo apt install -y jdk10-openjdk</apt>
             </commands>
         </package>
@@ -355,9 +306,7 @@
             <name>Filezilla</name>
             <icon>filezilla.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm filezilla</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm filezilla</pacman>
                 <apt>sudo apt install -y filezilla</apt>
             </commands>
         </package>
@@ -365,9 +314,7 @@
             <name>Notepadqq</name>
             <icon>notepadqq.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm notepadqq</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm notepadqq</pacman>
                 <apt>sudo apt install -y notepadqq</apt>
             </commands>
         </package>
@@ -441,9 +388,7 @@
             <name>Terminator</name>
             <icon>terminator.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm terminator</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm terminator</pacman>
                 <apt>sudo apt install -y terminator</apt>
             </commands>
         </package>
@@ -451,9 +396,7 @@
             <name>Yakuake</name>
             <icon>yakuake.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm yakuake</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm yakuake</pacman>
                 <apt>sudo apt install -y yakuake</apt>
             </commands>
         </package>
@@ -461,9 +404,7 @@
             <name>Tilda</name>
             <icon>tilda.png</icon>
             <commands>
-                <pacman steps="single">
-                    <step>sudo pacman -S --noconfirm tilda</step>
-                </pacman>
+                <pacman>sudo pacman -S --noconfirm tilda</pacman>
                 <apt>sudo apt install -y tilda</apt>
             </commands>
         </package>

@@ -243,7 +243,9 @@ class MainScreenFormUi(QtWidgets.QWidget):
 
     def get_package_manager(self, distro):
         package_managers = {
-            "Arch Linux": "pacman"
+            "Arch Linux": "pacman",
+            "Antergos Linux": "pacman",
+            "Debian": "apt"
         }
 
         return package_managers.get(distro, "Invalid distro specified")

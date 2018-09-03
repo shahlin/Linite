@@ -153,7 +153,9 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
 
     def get_package_manager(self, distro):
         package_managers = {
-            "Arch Linux": "pacman"
+            "Arch Linux": "pacman",
+            "Antergos Linux": "pacman",
+            "Debian": "apt"
         }
 
         return package_managers.get(distro, "Invalid distro specified")
@@ -224,31 +226,23 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
             # If the current iteration in XML matches the application
             if package.find('name').text == application:
 
-                # Get the command
-                if package_manager == 'pacman':
+                # Check if there are multiple steps involved
+                if 'steps' in package.find('commands/' + package_manager).attrib:
                     # Check for steps
                     steps = package.find('commands/' + package_manager).attrib['steps']
 
-                    if steps == 'single':
-                        # Single step
-                        command = package.find('commands/' + package_manager + '/step').text
-                    elif steps == 'multiple':
-                        # Multiple steps
+                    if steps == 'multiple':
 
-                        # Multiple or single step flag
+                        # Multiple step flag
                         multiple_steps = True
 
                         # Get list of commands from XML
                         steps_list = package.find('commands/' + package_manager)
+
                         for step in steps_list:
                             installation_steps.append(step.text)
-                    elif steps == 'unavailable':
-                        command = "echo unavailable"
                 else:
                     command = package.find('commands/' + package_manager).text
-
-
-                print(installation_steps)
 
                 # Set variables
                 if multiple_steps is True:
