@@ -5,7 +5,7 @@
             <icon>chromium.png</icon>
             <commands>
                 <pacman>sudo pacman -S --noconfirm chromium</pacman>
-                <apt>sudo apt install -y chromium</apt>
+                <apt>sudo apt install -y chromium-browser</apt>
             </commands>
         </package>
         <package>

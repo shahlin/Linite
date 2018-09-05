@@ -30,6 +30,9 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
     # Variable to hold current progress value
     progress_val = 0
 
+    # Invalid distro message
+    invalid_distro_msg = "Invalid distro specified"
+
     def __init__(self):
         super().__init__()
         self.setup_ui(self)
@@ -143,6 +146,11 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
                 # Get full names of applications and insert it to the list
                 self.checked_applications_list.extend(line.split('\n'))
 
+        # The list contains empty elements for some reason and I wanna sleep now, so here's a quick fix.
+        # Remove empty elements from the list
+        self.checked_applications_list = list(filter(lambda val: val != '', self.checked_applications_list))
+
+        # Get the count of checked applications
         self.applications_count = len(self.checked_applications_list)
 
     def get_distro(self):
@@ -155,10 +163,12 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         package_managers = {
             "Arch Linux": "pacman",
             "Antergos Linux": "pacman",
-            "Debian": "apt"
+            "ManjaroLinux": "pacman",
+            "Debian": "apt",
+            "Ubuntu": "apt"
         }
 
-        return package_managers.get(distro, "Invalid distro specified")
+        return package_managers.get(distro, self.invalid_distro_msg)
 
     def show_about(self):
         # Display a success message box

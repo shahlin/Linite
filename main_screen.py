@@ -4,13 +4,14 @@
 #
 # Created by: PyQt5 UI code generator 5.10.1
 
-# TODO Add download commands for applications
-# TODO Fix download percentage
+# TODO Add download commands for applications -- DONE
+# TODO Fix download percentage -- DONE
+# TODO Test with other operating systems -- DONE
+
 # TODO Add Extra detail for some applications like IntelliJ for debian downloaded to /opt folder (maybe add element in XML)
 # TODO Gitignore unwanted files
 # TODO Add 'Check terminal for details' label
 # TODO Move Package List XML to cloud
-# TODO Test with other operating systems
 # TODO Documentation
 
 import sys
@@ -42,10 +43,23 @@ class MainScreenFormUi(QtWidgets.QWidget):
     # Number of applications selected
     selected_application_count = 0
 
+    # Invalid distro message
+    invalid_distro_msg = "Invalid distro specified"
+
     # Number of columns allowed in the grid
     GRID_COLUMNS = 5
 
     def __init__(self):
+
+        # If the distro is not supported by Linite, do not start the application
+        if self.get_package_manager(self.get_distro().rstrip()) == self.invalid_distro_msg:
+            print('--------------------------------------------------------------')
+            print('|                                                            |')
+            print('| Unfortunately Linite does not support your Linux distro :( |')
+            print('|                                                            |')
+            print('--------------------------------------------------------------')
+            exit()
+
         super().__init__()
 
         self.setup_ui(self)
@@ -248,10 +262,12 @@ class MainScreenFormUi(QtWidgets.QWidget):
         package_managers = {
             "Arch Linux": "pacman",
             "Antergos Linux": "pacman",
-            "Debian": "apt"
+            "ManjaroLinux": "pacman",
+            "Debian": "apt",
+            "Ubuntu": "apt"
         }
 
-        return package_managers.get(distro, "Invalid distro specified")
+        return package_managers.get(distro, self.invalid_distro_msg)
 
     def checkbox_state_changed(self):
         for key, value in self.checkboxes_dict.items():
