@@ -3,8 +3,7 @@
 # Form implementation generated from reading ui file 'download_screen.ui'
 #
 # Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
+
 import os
 import subprocess
 import xml.etree.ElementTree as ET
@@ -67,10 +66,12 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Add about button to the window
         self.about_btn = QtWidgets.QPushButton(download_screen_form)
 
+        # Font object to change font style of GUI elements
+        font = QtGui.QFont()
+
         # Set properties for the about button
         self.about_btn.setGeometry(QtCore.QRect(844, 10, 65, 50))
         self.about_btn.setMaximumSize(QtCore.QSize(65, 16777215))
-        font = QtGui.QFont()
         font.setFamily("Cantarell")
         font.setPointSize(14)
         font.setBold(False)
@@ -103,7 +104,6 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         self.status_heading_label.setGeometry(QtCore.QRect(70, 130, 81, 21))
 
         # Set properties for the above heading
-        font = QtGui.QFont()
         font.setFamily("Bitstream Vera Sans")
         font.setPointSize(16)
         font.setBold(True)
@@ -122,13 +122,17 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         self.installed_heading_label.setGeometry(QtCore.QRect(70, 360, 121, 30))
 
         # Set properties for the above heading
-        font = QtGui.QFont()
-        font.setFamily("Bitstream Vera Sans")
         font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
         self.installed_heading_label.setFont(font)
         self.installed_heading_label.setObjectName("installed_heading_label")
+
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(True)
+        self.check_terminal_label = QtWidgets.QLabel(download_screen_form)
+        self.check_terminal_label.setGeometry(QtCore.QRect(70, 318, 221, 20))
+        self.check_terminal_label.setFont(font)
+        self.check_terminal_label.setObjectName("check_terminal_label")
 
         # Add a list widget to show list of applications installed
         self.installed_list = QtWidgets.QListWidget(download_screen_form)
@@ -254,6 +258,12 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
                 else:
                     command = package.find('commands/' + package_manager).text
 
+                self.detailMessage = None
+
+                # Check if detail is provided
+                if 'detail' in package.find('commands/' + package_manager).attrib:
+                    self.detailMessage = package.find('commands/' + package_manager).attrib['detail']
+
                 # Set variables
                 if multiple_steps is True:
                     self.download_worker.command = installation_steps
@@ -286,8 +296,14 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         # Show download complete when the application finishes downloading
         self.current_status_label.setText('Download and Install Complete')
 
-        # Add to the list of installed applications
-        item = QListWidgetItem(application_name)
+        # Check if the item has a detail
+        if self.detailMessage is not None:
+            # Add to the list of installed applications with the detail
+            item = QListWidgetItem(application_name + " (" + self.detailMessage + ")")
+        else:
+            # Add to the list of installed applications without the detail
+            item = QListWidgetItem(application_name)
+
         self.installed_list.addItem(item)
 
         progress_div = round(100 / self.applications_count)
@@ -304,16 +320,6 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
             os.remove(temp_file)
         else:
             print("Error: File not found")
-
-    def run_download_command(self, command, application_name):
-        # Run command
-        subprocess.call(command)
-
-        self.current_status_label.setText('Completed downloading and installing ' + application_name)
-
-        # Add to the list of installed applications
-        self.installed_applications_list.append(application_name)
-        self.installed_list.setText(', '.join(self.installed_applications_list))
 
     def retranslate_ui(self, download_screen_form):
         _translate = QtCore.QCoreApplication.translate
@@ -336,6 +342,9 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         self.separator_label.setText(_translate("download_screen_form", "<html><head/><body><p><img "
                                                                         "src=\":/app/icons/app/separator.png\"/></p"
                                                                         "></body></html>"))
+
+        # Check terminal for details label
+        self.check_terminal_label.setText(_translate("download_screen_form", "[Check terminal for details]"))
 
         # Installed heading label
         self.installed_heading_label.setText(_translate("download_screen_form", "Installed"))

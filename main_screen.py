@@ -7,21 +7,27 @@
 # TODO Add download commands for applications -- DONE
 # TODO Fix download percentage -- DONE
 # TODO Test with other operating systems -- DONE
+# TODO Add Extra detail for some applications like IntelliJ for debian downloaded to /opt folder (maybe add element in XML)  -- DONE
+# TODO Add 'Check terminal for details' label -- DONE
 
-# TODO Add Extra detail for some applications like IntelliJ for debian downloaded to /opt folder (maybe add element in XML)
-# TODO Gitignore unwanted files
-# TODO Add 'Check terminal for details' label
-# TODO Move Package List XML to cloud
 # TODO Documentation
 
 import sys
-
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-from download_screen import DownloadScreenFormUi
 import xml.etree.ElementTree as ET
 import subprocess
 
+from download_screen import DownloadScreenFormUi
+
+try:
+    from PyQt5 import QtCore, QtGui, QtWidgets
+    from PyQt5.QtWidgets import QMessageBox
+except ModuleNotFoundError:
+    print('--------------------------------------------------------------')
+    print('|                                                            |')
+    print('|   Please install python3-pyqt5 dependency to use Linite    |')
+    print('|                                                            |')
+    print('--------------------------------------------------------------')
+    exit()
 
 class MainScreenFormUi(QtWidgets.QWidget):
     # Parse XML file to get packages/applications info
@@ -75,6 +81,9 @@ class MainScreenFormUi(QtWidgets.QWidget):
         main_screen_form.setObjectName("main_screen_form")
         main_screen_form.resize(917, 668)
         main_screen_form.setMaximumSize(QtCore.QSize(917, 668))
+
+        # Disable maximizing button
+        main_screen_form.setWindowFlags(main_screen_form.windowFlags() & ~QtCore.Qt.WindowMaximizeButtonHint)
 
         # Set application icon
         icon = QtGui.QIcon()
@@ -142,7 +151,6 @@ class MainScreenFormUi(QtWidgets.QWidget):
         # Loop through each category
         for category in self.root.findall('category'):
             category_name = category.get('name')
-            print("Category Row : " + str(category_row))
 
             # Start inserting applications for every category from col 0
             col = 0
@@ -286,7 +294,6 @@ class MainScreenFormUi(QtWidgets.QWidget):
         self.update_proceed_btn()
 
     def update_selected_count(self):
-        print(self.checked_applications_list)
         _translate = QtCore.QCoreApplication.translate
 
         # Number of applications selected label
@@ -365,12 +372,9 @@ class MainScreenFormUi(QtWidgets.QWidget):
         # About button
         self.about_btn.setText(_translate("main_screen_form", "About"))
 
-        print(len(self.icon_label_list))
-
         j = 0
         for i, category in enumerate(self.root.findall('category')):
             category_name = category.get('name').lower()
-            print("\nCategory: " + category_name)
 
             self.category_label_list[i].setText(_translate("main_screen_form", category_name.title()))
 
@@ -390,7 +394,6 @@ class MainScreenFormUi(QtWidgets.QWidget):
                                                            + icon_path + "\"/></p></body></html>"))
 
                 self.checkboxes_dict[application_name].setText(_translate("main_screen_form", application_name.title()))
-                print("Icon: " + icon_name)
 
                 j += 1
 

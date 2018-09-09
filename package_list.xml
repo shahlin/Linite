@@ -27,7 +27,7 @@
     </category>
     <category name="messaging">
         <package>
-            <name>Skype</name>
+            <name>Skypeforlinux</name>
             <icon>skype.png</icon>
             <commands>
                 <pacman steps="multiple">
@@ -377,7 +377,7 @@
             <name>IntelliJ Ultimate Edition</name>
             <icon>intellij.png</icon>
             <commands>
-                <pacman steps="multiple">
+                <pacman steps="multiple" detail="IntelliJ has been saved on your /opt/ folder">
                     <step>wget https://aur.archlinux.org/cgit/aur.git/snapshot/intellij-idea-ultimate-edition.tar.gz</step>
                     <step>tar --transform 's/.*\///' -xzf intellij*.tar.gz</step>
                     <step>su -c "makepkg -s" `logname`</step>
@@ -414,7 +414,7 @@
                     <step>sudo pacman -U --noconfirm android*.pkg.tar</step>
                     <step>sudo rm -rf pkg src .gitignore  Makefile PKGBUILD .SRCINFO android* jetbrains*</step>
                 </pacman>
-                <apt steps="multiple">
+                <apt steps="multiple" detail="Android Studio has been saved to /opt/android-studio">
                     <step>wget https://dl.google.com/dl/android/studio/ide-zips/3.1.4.0/android-studio-ide-173.4907809-linux.zip</step>
                     <step>mkdir /opt/android-studio</step>
                     <step>unzip android-studio*.zip -d /opt/android-studio</step>
