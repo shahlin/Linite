@@ -34,6 +34,7 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
 
     def __init__(self):
         super().__init__()
+
         self.setup_ui(self)
 
         # Center Window

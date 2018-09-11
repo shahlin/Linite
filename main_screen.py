@@ -4,30 +4,32 @@
 #
 # Created by: PyQt5 UI code generator 5.10.1
 
-# TODO Add download commands for applications -- DONE
-# TODO Fix download percentage -- DONE
-# TODO Test with other operating systems -- DONE
-# TODO Add Extra detail for some applications like IntelliJ for debian downloaded to /opt folder (maybe add element in XML)  -- DONE
-# TODO Add 'Check terminal for details' label -- DONE
-
-# TODO Documentation
-
+# Make sure Python 3 is installed
 import sys
+if sys.version_info[0] < 3:
+    print('--------------------------------------------------------------')
+    print('|                                                            |')
+    print('| Please use Python3 to use Linite (>=Python3.6 recommended) |')
+    print('|                                                            |')
+    print('--------------------------------------------------------------')
+    exit()
+
+# Make sure PyQt5 is installed
+try:
+    from PyQt5 import QtCore, QtGui, QtWidgets
+    from PyQt5.QtWidgets import QMessageBox
+except (ImportError, ModuleNotFoundError):
+    print('--------------------------------------------------------------')
+    print('|                                                            |')
+    print('|    Please install python3-pyqt5 dependency to use Linite   |')
+    print('|                                                            |')
+    print('--------------------------------------------------------------')
+    exit()
+
 import xml.etree.ElementTree as ET
 import subprocess
 
 from download_screen import DownloadScreenFormUi
-
-try:
-    from PyQt5 import QtCore, QtGui, QtWidgets
-    from PyQt5.QtWidgets import QMessageBox
-except ModuleNotFoundError:
-    print('--------------------------------------------------------------')
-    print('|                                                            |')
-    print('|   Please install python3-pyqt5 dependency to use Linite    |')
-    print('|                                                            |')
-    print('--------------------------------------------------------------')
-    exit()
 
 class MainScreenFormUi(QtWidgets.QWidget):
     # Parse XML file to get packages/applications info
