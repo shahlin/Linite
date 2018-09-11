@@ -9,7 +9,7 @@ import sys
 if sys.version_info[0] < 3:
     print('--------------------------------------------------------------')
     print('|                                                            |')
-    print('| Please use Python3 to use Linite (>=Python3.6 recommended) |')
+    print('| Please use Python3 to use Linite (>=Python3.5 recommended) |')
     print('|                                                            |')
     print('--------------------------------------------------------------')
     exit()
@@ -18,7 +18,7 @@ if sys.version_info[0] < 3:
 try:
     from PyQt5 import QtCore, QtGui, QtWidgets
     from PyQt5.QtWidgets import QMessageBox
-except (ImportError, ModuleNotFoundError):
+except ImportError:
     print('--------------------------------------------------------------')
     print('|                                                            |')
     print('|    Please install python3-pyqt5 dependency to use Linite   |')
