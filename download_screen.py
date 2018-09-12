@@ -166,6 +166,7 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
 
     def get_package_manager(self, distro):
         package_managers = {
+            "Arch": "pacman",
             "Arch Linux": "pacman",
             "Antergos Linux": "pacman",
             "ManjaroLinux": "pacman",

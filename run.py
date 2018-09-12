@@ -31,6 +31,7 @@ import subprocess
 
 from download_screen import DownloadScreenFormUi
 
+
 class MainScreenFormUi(QtWidgets.QWidget):
     # Parse XML file to get packages/applications info
     tree = ET.parse('package_list.xml')
@@ -270,6 +271,7 @@ class MainScreenFormUi(QtWidgets.QWidget):
 
     def get_package_manager(self, distro):
         package_managers = {
+            "Arch": "pacman",
             "Arch Linux": "pacman",
             "Antergos Linux": "pacman",
             "ManjaroLinux": "pacman",
