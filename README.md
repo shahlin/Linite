@@ -3,7 +3,7 @@
 
 **Linite** is a Linux based application that allows users to easily select the applications they want and download & install them with just a click of a button. Typically, the user would have to go over each application's website, download the package and install it themself. Linite eases this process. Also it downloads the latest packages from the operating system's official repository so the user gets the latest version at all times.
 
-Linite is inspired by Ninite, a similar program available on Windows platform. Since Ninite was no longer supported on Linux, I decided to build one for Linux myself. It is still in its early stages, so go easy on me if you find any bugs. :)
+Linite is inspired by Ninite, a similar program available on Windows platform. Since Ninite was no longer supported on Linux, I decided to build one for Linux myself. Even though there are many package managers on Linux, I wanted to create something that lets users install their essential applications with a very simple and minimal design, It is still in its early stages, so go easy on me if you find any bugs. :)
 
 ## Supported Linux Distributions
 - Arch Linux based distros
