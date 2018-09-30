@@ -145,6 +145,11 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         QtCore.QMetaObject.connectSlotsByName(download_screen_form)
 
     def populate_checked_list(self):
+        """
+            Gets the applications from the temporary file .download.txt
+            and saves each of them in the checked_applications_list
+        """
+
         # Get every application from file and add it to the list
         with open(".download.txt", "r") as f:
             for line in f:
@@ -314,6 +319,10 @@ class DownloadScreenFormUi(QtWidgets.QWidget):
         self.download_progress.setValue(self.progress_val)
 
     def delete_temp_file(self):
+        """
+            Deletes temporary file once the checked_applications_list
+            is populated
+        """
         temp_file = ".download.txt"
 
         # Check if file exists

@@ -168,6 +168,9 @@ class MainScreenFormUi(QtWidgets.QWidget):
 
             self.category_label_list.append(self.category_label)
 
+            # One row for the heading
+            # Second row for icon
+            # Third row for application name
             application_row += 3
 
             # Loop through each package in a category
