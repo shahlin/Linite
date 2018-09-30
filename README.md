@@ -22,6 +22,13 @@ sudo python3 run.py
 ##### **NOTE: Make sure to run the command with sudo**
 There will be a password prompt upon running the command. Linite will open once you enter your password. You can select the applications you want to install and click on **Proceed**.
 
+## Screenshots
+#### Main Screen
+![alt text](https://i.imgur.com/FuVve0X.png "Main screen")
+
+#### Download Screen
+![alt text](https://i.imgur.com/GuY4YZn.png "Download screen")
+
 ## For Developers
 ### Basic requirements
 - Python 3
