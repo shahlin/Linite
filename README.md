@@ -84,7 +84,3 @@ The application parses the XML document using the **xml.etree.ElementTree** libr
 - And so on for every category.
  
 The great thing about this is, if you want to add a new application to the list, the python code doesn't have to be touched at all. Just add it to the XML file with appropriate values and you're done. However, if you're using an icon, you need to make sure to update the **.qrc** using Qt5 Designer and run the **pyrcc5** command (name it icons_rc.py and put it in the assets folder). Also, to convert a GUI made in Qt5 Designer to python, you need to run the **pyuic5** command.
-
-If this helped you or you like my work, you can buy me a cup of coffee :D
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PEPT6HT2AHDXW)
